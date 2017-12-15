@@ -3,9 +3,9 @@ from yaw_controller import YawController
 from pid import PID
 
 GAS_DENSITY = 2.858
-ONE_MPH = 0.44704
+ONE_MPH = 0.44704 # mph to mps
 SAMPLE_TIME_MIN = 0.02
-SPEED_LIMIT=40
+
 
 class Controller(object):
     def __init__(self, *args, **kwargs):
@@ -41,10 +41,13 @@ class Controller(object):
                 self.wheel_radius = kwargs[key]
             elif key == "vehicle_mass":
                 self.vehicle_mass = kwargs[key]
+            elif key == "max_velocity":
+                # kmh to mph
+                self.max_velocity = kwargs[key] * 0.621371
 
         self.yaw_controller = YawController(self.wheel_base, self.steer_ratio,\
         self.min_speed, self.max_lat_accel, self.max_steer_angle)
-        self.pid_throttle = PID(kp=4.0, ki=0.00001, kd=10.0)
+        self.pid_throttle = PID(kp=2.0, ki=0.00001, kd=8.0)
 
         self.debug_counter =0
         pass
@@ -79,14 +82,15 @@ class Controller(object):
             throttle = 0.0
             target_velocity_linear.x = 0.0
         else:
-            target_velocity = min(SPEED_LIMIT*ONE_MPH, target_velocity_linear.x)
+            max_speed_mps = self.max_velocity*ONE_MPH
+            target_velocity = min(max_speed_mps, target_velocity_linear.x)
             v_error = target_velocity - current_velocity_linear.x
             v_decel = self.decel_limit*sample_time
             v_accel = self.accel_limit*sample_time
             v_error = min(v_error, v_accel)
             v_error = max(v_error, v_decel)
             throttle = self.pid_throttle.step(error= v_error, sample_time=sample_time)
-            throttle = max(0.0 , throttle)
+            throttle = min(max(0.0 , throttle), max_speed_mps)
 
         # call yaw controller  linear_velocity, angular_velocity, current_velocity
         steer = self.yaw_controller.get_steering(target_velocity_linear.x, target_velocity_angular.z,\

@@ -1,0 +1,2943 @@
+Traceback (most recent call last):
+  File "src/tl_detector/light_classification/traffic_light_classifier/train.py", line 5, in <module>
+    from sklearn.model_selection import train_test_split
+ImportError: No module named sklearn.model_selection
+Traceback (most recent call last):
+  File "src/tl_detector/light_classification/traffic_light_classifier/train.py", line 7, in <module>
+    import boto3
+ImportError: No module named boto3
+2017-12-13 15:50:32.086975: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 15:50:32.087322: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 15:50:32.087575: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 15:50:32.087775: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 15:50:32.087992: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:32, from:4352
+start:32 , end:64, from:4352
+start:64 , end:96, from:4352
+start:96 , end:128, from:4352
+start:128 , end:160, from:4352
+start:160 , end:192, from:4352
+start:192 , end:224, from:4352
+start:224 , end:256, from:4352
+start:256 , end:288, from:4352
+start:288 , end:320, from:4352
+start:320 , end:352, from:4352
+start:352 , end:384, from:4352
+start:384 , end:416, from:4352
+start:416 , end:448, from:4352
+start:448 , end:480, from:4352
+start:480 , end:512, from:4352
+start:512 , end:544, from:4352
+start:544 , end:576, from:4352
+start:576 , end:608, from:4352
+start:608 , end:640, from:4352
+start:640 , end:672, from:4352
+start:672 , end:704, from:4352
+start:704 , end:736, from:4352
+start:736 , end:768, from:4352
+start:768 , end:800, from:4352
+start:800 , end:832, from:4352
+start:832 , end:864, from:4352
+start:864 , end:896, from:4352
+start:896 , end:928, from:4352
+start:928 , end:960, from:4352
+start:960 , end:992, from:4352
+start:992 , end:1024, from:4352
+start:1024 , end:1056, from:4352
+start:1056 , end:1088, from:4352
+start:1088 , end:1120, from:4352
+start:1120 , end:1152, from:4352
+start:1152 , end:1184, from:4352
+start:1184 , end:1216, from:4352
+start:1216 , end:1248, from:4352
+start:1248 , end:1280, from:4352
+start:1280 , end:1312, from:4352
+start:1312 , end:1344, from:4352
+start:1344 , end:1376, from:4352
+start:1376 , end:1408, from:4352
+start:1408 , end:1440, from:4352
+start:1440 , end:1472, from:4352
+start:1472 , end:1504, from:4352
+start:1504 , end:1536, from:4352
+start:1536 , end:1568, from:4352
+start:1568 , end:1600, from:4352
+start:1600 , end:1632, from:4352
+start:1632 , end:1664, from:4352
+start:1664 , end:1696, from:4352
+start:1696 , end:1728, from:4352
+start:1728 , end:1760, from:4352
+start:1760 , end:1792, from:4352
+start:1792 , end:1824, from:4352
+start:1824 , end:1856, from:4352
+start:1856 , end:1888, from:4352
+start:1888 , end:1920, from:4352
+start:1920 , end:1952, from:4352
+start:1952 , end:1984, from:4352
+start:1984 , end:2016, from:4352
+start:2016 , end:2048, from:4352
+start:2048 , end:2080, from:4352
+start:2080 , end:2112, from:4352
+start:2112 , end:2144, from:4352
+start:2144 , end:2176, from:4352
+start:2176 , end:2208, from:4352
+start:2208 , end:2240, from:4352
+start:2240 , end:2272, from:4352
+start:2272 , end:2304, from:4352
+start:2304 , end:2336, from:4352
+start:2336 , end:2368, from:4352
+start:2368 , end:2400, from:4352
+start:2400 , end:2432, from:4352
+start:2432 , end:2464, from:4352
+start:2464 , end:2496, from:4352
+start:2496 , end:2528, from:4352
+start:2528 , end:2560, from:4352
+start:2560 , end:2592, from:4352
+start:2592 , end:2624, from:4352
+start:2624 , end:2656, from:4352
+start:2656 , end:2688, from:4352
+start:2688 , end:2720, from:4352
+start:2720 , end:2752, from:4352
+start:2752 , end:2784, from:4352
+start:2784 , end:2816, from:4352
+start:2816 , end:2848, from:4352
+start:2848 , end:2880, from:4352
+start:2880 , end:2912, from:4352
+start:2912 , end:2944, from:4352
+start:2944 , end:2976, from:4352
+start:2976 , end:3008, from:4352
+start:3008 , end:3040, from:4352
+start:3040 , end:3072, from:4352
+start:3072 , end:3104, from:4352
+start:3104 , end:3136, from:4352
+start:3136 , end:3168, from:4352
+start:3168 , end:3200, from:4352
+start:3200 , end:3232, from:4352
+start:3232 , end:3264, from:4352
+start:3264 , end:3296, from:4352
+start:3296 , end:3328, from:4352
+start:3328 , end:3360, from:4352
+start:3360 , end:3392, from:4352
+start:3392 , end:3424, from:4352
+start:3424 , end:3456, from:4352
+start:3456 , end:3488, from:4352
+start:3488 , end:3520, from:4352
+start:3520 , end:3552, from:4352
+start:3552 , end:3584, from:4352
+start:3584 , end:3616, from:4352
+start:3616 , end:3648, from:4352
+start:3648 , end:3680, from:4352
+start:3680 , end:3712, from:4352
+start:3712 , end:3744, from:4352
+start:3744 , end:3776, from:4352
+start:3776 , end:3808, from:4352
+start:3808 , end:3840, from:4352
+start:3840 , end:3872, from:4352
+start:3872 , end:3904, from:4352
+start:3904 , end:3936, from:4352
+start:3936 , end:3968, from:4352
+start:3968 , end:4000, from:4352
+start:4000 , end:4032, from:4352
+start:4032 , end:4064, from:4352
+start:4064 , end:4096, from:4352
+start:4096 , end:4128, from:4352
+start:4128 , end:4160, from:4352
+start:4160 , end:4192, from:4352
+start:4192 , end:4224, from:4352
+start:4224 , end:4256, from:4352
+start:4256 , end:4288, from:4352
+start:4288 , end:4320, from:4352
+start:4320 , end:4352, from:4352
+start:0 , end:32, from:1088
+start:32 , end:64, from:1088
+start:64 , end:96, from:1088
+start:96 , end:128, from:1088
+start:128 , end:160, from:1088
+start:160 , end:192, from:1088
+start:192 , end:224, from:1088
+start:224 , end:256, from:1088
+start:256 , end:288, from:1088
+start:288 , end:320, from:1088
+start:320 , end:352, from:1088
+start:352 , end:384, from:1088
+start:384 , end:416, from:1088
+start:416 , end:448, from:1088
+start:448 , end:480, from:1088
+start:480 , end:512, from:1088
+start:512 , end:544, from:1088
+start:544 , end:576, from:1088
+start:576 , end:608, from:1088
+start:608 , end:640, from:1088
+start:640 , end:672, from:1088
+start:672 , end:704, from:1088
+start:704 , end:736, from:1088
+start:736 , end:768, from:1088
+start:768 , end:800, from:1088
+start:800 , end:832, from:1088
+start:832 , end:864, from:1088
+start:864 , end:896, from:1088
+start:896 , end:928, from:1088
+start:928 , end:960, from:1088
+start:960 , end:992, from:1088
+start:992 , end:1024, from:1088
+start:1024 , end:1056, from:1088
+start:1056 , end:1088, from:1088
+Validation Accuracy = 0.969
+EPOCH 1 ...
+start:0 , end:32, from:4352
+start:32 , end:64, from:4352
+start:64 , end:96, from:4352
+start:96 , end:128, from:4352
+start:128 , end:160, from:4352
+start:160 , end:192, from:4352
+start:192 , end:224, from:4352
+start:224 , end:256, from:4352
+start:256 , end:288, from:4352
+start:288 , end:320, from:4352
+start:320 , end:352, from:4352
+start:352 , end:384, from:4352
+start:384 , end:416, from:4352
+start:416 , end:448, from:4352
+start:448 , end:480, from:4352
+start:480 , end:512, from:4352
+start:512 , end:544, from:4352
+start:544 , end:576, from:4352
+start:576 , end:608, from:4352
+start:608 , end:640, from:4352
+start:640 , end:672, from:4352
+start:672 , end:704, from:4352
+start:704 , end:736, from:4352
+start:736 , end:768, from:4352
+start:768 , end:800, from:4352
+start:800 , end:832, from:4352
+start:832 , end:864, from:4352
+start:864 , end:896, from:4352
+start:896 , end:928, from:4352
+start:928 , end:960, from:4352
+start:960 , end:992, from:4352
+start:992 , end:1024, from:4352
+start:1024 , end:1056, from:4352
+start:1056 , end:1088, from:4352
+start:1088 , end:1120, from:4352
+start:1120 , end:1152, from:4352
+start:1152 , end:1184, from:4352
+start:1184 , end:1216, from:4352
+start:1216 , end:1248, from:4352
+start:1248 , end:1280, from:4352
+start:1280 , end:1312, from:4352
+start:1312 , end:1344, from:4352
+start:1344 , end:1376, from:4352
+start:1376 , end:1408, from:4352
+start:1408 , end:1440, from:4352
+start:1440 , end:1472, from:4352
+start:1472 , end:1504, from:4352
+start:1504 , end:1536, from:4352
+start:1536 , end:1568, from:4352
+start:1568 , end:1600, from:4352
+start:1600 , end:1632, from:4352
+start:1632 , end:1664, from:4352
+start:1664 , end:1696, from:4352
+start:1696 , end:1728, from:4352
+start:1728 , end:1760, from:4352
+start:1760 , end:1792, from:4352
+start:1792 , end:1824, from:4352
+start:1824 , end:1856, from:4352
+start:1856 , end:1888, from:4352
+start:1888 , end:1920, from:4352
+start:1920 , end:1952, from:4352
+start:1952 , end:1984, from:4352
+start:1984 , end:2016, from:4352
+start:2016 , end:2048, from:4352
+start:2048 , end:2080, from:4352
+start:2080 , end:2112, from:4352
+start:2112 , end:2144, from:4352
+start:2144 , end:2176, from:4352
+start:2176 , end:2208, from:4352
+start:2208 , end:2240, from:4352
+start:2240 , end:2272, from:4352
+start:2272 , end:2304, from:4352
+start:2304 , end:2336, from:4352
+start:2336 , end:2368, from:4352
+start:2368 , end:2400, from:4352
+start:2400 , end:2432, from:4352
+start:2432 , end:2464, from:4352
+start:2464 , end:2496, from:4352
+start:2496 , end:2528, from:4352
+start:2528 , end:2560, from:4352
+start:2560 , end:2592, from:4352
+start:2592 , end:2624, from:4352
+start:2624 , end:2656, from:4352
+start:2656 , end:2688, from:4352
+start:2688 , end:2720, from:4352
+start:2720 , end:2752, from:4352
+start:2752 , end:2784, from:4352
+start:2784 , end:2816, from:4352
+start:2816 , end:2848, from:4352
+start:2848 , end:2880, from:4352
+start:2880 , end:2912, from:4352
+start:2912 , end:2944, from:4352
+start:2944 , end:2976, from:4352
+start:2976 , end:3008, from:4352
+start:3008 , end:3040, from:4352
+start:3040 , end:3072, from:4352
+start:3072 , end:3104, from:4352
+start:3104 , end:3136, from:4352
+start:3136 , end:3168, from:4352
+start:3168 , end:3200, from:4352
+start:3200 , end:3232, from:4352
+start:3232 , end:3264, from:4352
+start:3264 , end:3296, from:4352
+start:3296 , end:3328, from:4352
+start:3328 , end:3360, from:4352
+start:3360 , end:3392, from:4352
+start:3392 , end:3424, from:4352
+start:3424 , end:3456, from:4352
+start:3456 , end:3488, from:4352
+start:3488 , end:3520, from:4352
+start:3520 , end:3552, from:4352
+start:3552 , end:3584, from:4352
+start:3584 , end:3616, from:4352
+start:3616 , end:3648, from:4352
+start:3648 , end:3680, from:4352
+start:3680 , end:3712, from:4352
+start:3712 , end:3744, from:4352
+start:3744 , end:3776, from:4352
+start:3776 , end:3808, from:4352
+start:3808 , end:3840, from:4352
+start:3840 , end:3872, from:4352
+start:3872 , end:3904, from:4352
+start:3904 , end:3936, from:4352
+start:3936 , end:3968, from:4352
+start:3968 , end:4000, from:4352
+start:4000 , end:4032, from:4352
+start:4032 , end:4064, from:4352
+start:4064 , end:4096, from:4352
+start:4096 , end:4128, from:4352
+start:4128 , end:4160, from:4352
+start:4160 , end:4192, from:4352
+start:4192 , end:4224, from:4352
+start:4224 , end:4256, from:4352
+start:4256 , end:4288, from:4352
+start:4288 , end:4320, from:4352
+start:4320 , end:4352, from:4352
+Validation Accuracy = 0.000
+EPOCH 2 ...
+start:0 , end:32, from:4352
+start:32 , end:64, from:4352
+start:64 , end:96, from:4352
+start:96 , end:128, from:4352
+start:128 , end:160, from:4352
+start:160 , end:192, from:4352
+start:192 , end:224, from:4352
+start:224 , end:256, from:4352
+start:256 , end:288, from:4352
+start:288 , end:320, from:4352
+start:320 , end:352, from:4352
+start:352 , end:384, from:4352
+start:384 , end:416, from:4352
+start:416 , end:448, from:4352
+start:448 , end:480, from:4352
+start:480 , end:512, from:4352
+start:512 , end:544, from:4352
+start:544 , end:576, from:4352
+start:576 , end:608, from:4352
+start:608 , end:640, from:4352
+start:640 , end:672, from:4352
+start:672 , end:704, from:4352
+start:704 , end:736, from:4352
+start:736 , end:768, from:4352
+start:768 , end:800, from:4352
+start:800 , end:832, from:4352
+start:832 , end:864, from:4352
+start:864 , end:896, from:4352
+start:896 , end:928, from:4352
+start:928 , end:960, from:4352
+start:960 , end:992, from:4352
+start:992 , end:1024, from:4352
+start:1024 , end:1056, from:4352
+start:1056 , end:1088, from:4352
+start:1088 , end:1120, from:4352
+start:1120 , end:1152, from:4352
+start:1152 , end:1184, from:4352
+start:1184 , end:1216, from:4352
+start:1216 , end:1248, from:4352
+start:1248 , end:1280, from:4352
+start:1280 , end:1312, from:4352
+start:1312 , end:1344, from:4352
+start:1344 , end:1376, from:4352
+start:1376 , end:1408, from:4352
+start:1408 , end:1440, from:4352
+start:1440 , end:1472, from:4352
+start:1472 , end:1504, from:4352
+start:1504 , end:1536, from:4352
+start:1536 , end:1568, from:4352
+start:1568 , end:1600, from:4352
+start:1600 , end:1632, from:4352
+start:1632 , end:1664, from:4352
+start:1664 , end:1696, from:4352
+start:1696 , end:1728, from:4352
+start:1728 , end:1760, from:4352
+start:1760 , end:1792, from:4352
+start:1792 , end:1824, from:4352
+start:1824 , end:1856, from:4352
+start:1856 , end:1888, from:4352
+start:1888 , end:1920, from:4352
+start:1920 , end:1952, from:4352
+start:1952 , end:1984, from:4352
+start:1984 , end:2016, from:4352
+start:2016 , end:2048, from:4352
+start:2048 , end:2080, from:4352
+start:2080 , end:2112, from:4352
+start:2112 , end:2144, from:4352
+start:2144 , end:2176, from:4352
+start:2176 , end:2208, from:4352
+start:2208 , end:2240, from:4352
+start:2240 , end:2272, from:4352
+start:2272 , end:2304, from:4352
+start:2304 , end:2336, from:4352
+start:2336 , end:2368, from:4352
+start:2368 , end:2400, from:4352
+start:2400 , end:2432, from:4352
+start:2432 , end:2464, from:4352
+start:2464 , end:2496, from:4352
+start:2496 , end:2528, from:4352
+start:2528 , end:2560, from:4352
+start:2560 , end:2592, from:4352
+start:2592 , end:2624, from:4352
+start:2624 , end:2656, from:4352
+start:2656 , end:2688, from:4352
+start:2688 , end:2720, from:4352
+start:2720 , end:2752, from:4352
+start:2752 , end:2784, from:4352
+start:2784 , end:2816, from:4352
+start:2816 , end:2848, from:4352
+start:2848 , end:2880, from:4352
+start:2880 , end:2912, from:4352
+start:2912 , end:2944, from:4352
+start:2944 , end:2976, from:4352
+start:2976 , end:3008, from:4352
+start:3008 , end:3040, from:4352
+start:3040 , end:3072, from:4352
+start:3072 , end:3104, from:4352
+start:3104 , end:3136, from:4352
+start:3136 , end:3168, from:4352
+start:3168 , end:3200, from:4352
+start:3200 , end:3232, from:4352
+start:3232 , end:3264, from:4352
+start:3264 , end:3296, from:4352
+start:3296 , end:3328, from:4352
+start:3328 , end:3360, from:4352
+start:3360 , end:3392, from:4352
+start:3392 , end:3424, from:4352
+start:3424 , end:3456, from:4352
+start:3456 , end:3488, from:4352
+start:3488 , end:3520, from:4352
+start:3520 , end:3552, from:4352
+start:3552 , end:3584, from:4352
+start:3584 , end:3616, from:4352
+start:3616 , end:3648, from:4352
+start:3648 , end:3680, from:4352
+start:3680 , end:3712, from:4352
+start:3712 , end:3744, from:4352
+start:3744 , end:3776, from:4352
+start:3776 , end:3808, from:4352
+start:3808 , end:3840, from:4352
+start:3840 , end:3872, from:4352
+start:3872 , end:3904, from:4352
+start:3904 , end:3936, from:4352
+start:3936 , end:3968, from:4352
+start:3968 , end:4000, from:4352
+start:4000 , end:4032, from:4352
+start:4032 , end:4064, from:4352
+start:4064 , end:4096, from:4352
+start:4096 , end:4128, from:4352
+start:4128 , end:4160, from:4352
+start:4160 , end:4192, from:4352
+start:4192 , end:4224, from:4352
+start:4224 , end:4256, from:4352
+start:4256 , end:4288, from:4352
+start:4288 , end:4320, from:4352
+start:4320 , end:4352, from:4352
+Validation Accuracy = 0.000
+EPOCH 3 ...
+start:0 , end:32, from:4352
+start:32 , end:64, from:4352
+start:64 , end:96, from:4352
+start:96 , end:128, from:4352
+start:128 , end:160, from:4352
+start:160 , end:192, from:4352
+start:192 , end:224, from:4352
+start:224 , end:256, from:4352
+start:256 , end:288, from:4352
+2017-12-13 16:19:17.088892: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:19:17.089502: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:19:17.089937: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:19:17.090352: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:19:17.090731: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:32, from:4352
+start:32 , end:64, from:4352
+start:64 , end:96, from:4352
+start:96 , end:128, from:4352
+start:128 , end:160, from:4352
+start:160 , end:192, from:4352
+start:192 , end:224, from:4352
+start:224 , end:256, from:4352
+start:256 , end:288, from:4352
+start:288 , end:320, from:4352
+start:320 , end:352, from:4352
+start:352 , end:384, from:4352
+start:384 , end:416, from:4352
+start:416 , end:448, from:4352
+start:448 , end:480, from:4352
+start:480 , end:512, from:4352
+start:512 , end:544, from:4352
+2017-12-13 16:20:24.956356: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:20:24.956807: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:20:24.957204: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:20:24.957508: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:20:24.957774: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:128, from:4352
+start:128 , end:256, from:4352
+start:256 , end:384, from:4352
+start:384 , end:512, from:4352
+start:512 , end:640, from:4352
+start:640 , end:768, from:4352
+start:768 , end:896, from:4352
+start:896 , end:1024, from:4352
+start:1024 , end:1152, from:4352
+start:1152 , end:1280, from:4352
+start:1280 , end:1408, from:4352
+start:1408 , end:1536, from:4352
+start:1536 , end:1664, from:4352
+start:1664 , end:1792, from:4352
+start:1792 , end:1920, from:4352
+start:1920 , end:2048, from:4352
+start:2048 , end:2176, from:4352
+start:2176 , end:2304, from:4352
+start:2304 , end:2432, from:4352
+start:2432 , end:2560, from:4352
+start:2560 , end:2688, from:4352
+start:2688 , end:2816, from:4352
+start:2816 , end:2944, from:4352
+start:2944 , end:3072, from:4352
+start:3072 , end:3200, from:4352
+start:3200 , end:3328, from:4352
+start:3328 , end:3456, from:4352
+start:3456 , end:3584, from:4352
+start:3584 , end:3712, from:4352
+start:3712 , end:3840, from:4352
+start:3840 , end:3968, from:4352
+start:3968 , end:4096, from:4352
+start:4096 , end:4224, from:4352
+start:4224 , end:4352, from:4352
+start:0 , end:128, from:1088
+(0.9296875, 128)
+start:128 , end:256, from:1088
+(0.90625, 128)
+start:256 , end:384, from:1088
+(0.921875, 128)
+start:384 , end:512, from:1088
+(0.8984375, 128)
+start:512 , end:640, from:1088
+(0.890625, 128)
+start:640 , end:768, from:1088
+(0.921875, 128)
+start:768 , end:896, from:1088
+(0.953125, 128)
+start:896 , end:1024, from:1088
+(0.9609375, 128)
+start:1024 , end:1087, from:1088
+(0.95238096, 63)
+Validation Accuracy = 0.924
+EPOCH 1 ...
+start:0 , end:128, from:4352
+start:128 , end:256, from:4352
+start:256 , end:384, from:4352
+start:384 , end:512, from:4352
+start:512 , end:640, from:4352
+start:640 , end:768, from:4352
+start:768 , end:896, from:4352
+start:896 , end:1024, from:4352
+start:1024 , end:1152, from:4352
+start:1152 , end:1280, from:4352
+start:1280 , end:1408, from:4352
+start:1408 , end:1536, from:4352
+start:1536 , end:1664, from:4352
+start:1664 , end:1792, from:4352
+start:1792 , end:1920, from:4352
+start:1920 , end:2048, from:4352
+start:2048 , end:2176, from:4352
+start:2176 , end:2304, from:4352
+start:2304 , end:2432, from:4352
+start:2432 , end:2560, from:4352
+start:2560 , end:2688, from:4352
+start:2688 , end:2816, from:4352
+start:2816 , end:2944, from:4352
+start:2944 , end:3072, from:4352
+start:3072 , end:3200, from:4352
+start:3200 , end:3328, from:4352
+start:3328 , end:3456, from:4352
+start:3456 , end:3584, from:4352
+start:3584 , end:3712, from:4352
+start:3712 , end:3840, from:4352
+start:3840 , end:3968, from:4352
+start:3968 , end:4096, from:4352
+start:4096 , end:4224, from:4352
+start:4224 , end:4352, from:4352
+Validation Accuracy = 0.000
+EPOCH 2 ...
+start:0 , end:128, from:4352
+start:128 , end:256, from:4352
+start:256 , end:384, from:4352
+start:384 , end:512, from:4352
+start:512 , end:640, from:4352
+start:640 , end:768, from:4352
+start:768 , end:896, from:4352
+start:896 , end:1024, from:4352
+start:1024 , end:1152, from:4352
+start:1152 , end:1280, from:4352
+2017-12-13 16:41:40.573928: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:41:40.574326: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:41:40.574690: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:41:40.575016: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 16:41:40.575330: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:128, from:4352
+start:128 , end:256, from:4352
+start:256 , end:384, from:4352
+start:384 , end:512, from:4352
+start:512 , end:640, from:4352
+start:640 , end:768, from:4352
+start:768 , end:896, from:4352
+start:896 , end:1024, from:4352
+start:1024 , end:1152, from:4352
+start:1152 , end:1280, from:4352
+start:1280 , end:1408, from:4352
+start:1408 , end:1536, from:4352
+start:1536 , end:1664, from:4352
+start:1664 , end:1792, from:4352
+start:1792 , end:1920, from:4352
+start:1920 , end:2048, from:4352
+start:2048 , end:2176, from:4352
+start:2176 , end:2304, from:4352
+start:2304 , end:2432, from:4352
+start:2432 , end:2560, from:4352
+start:2560 , end:2688, from:4352
+start:2688 , end:2816, from:4352
+start:2816 , end:2944, from:4352
+start:2944 , end:3072, from:4352
+start:3072 , end:3200, from:4352
+start:3200 , end:3328, from:4352
+start:3328 , end:3456, from:4352
+start:3456 , end:3584, from:4352
+start:3584 , end:3712, from:4352
+start:3712 , end:3840, from:4352
+start:3840 , end:3968, from:4352
+start:3968 , end:4096, from:4352
+start:4096 , end:4224, from:4352
+start:4224 , end:4352, from:4352
+start:0 , end:128, from:1088
+(0.9140625, 128)
+start:128 , end:256, from:1088
+(0.8828125, 128)
+start:256 , end:384, from:1088
+(0.9296875, 128)
+start:384 , end:512, from:1088
+(0.9296875, 128)
+start:512 , end:640, from:1088
+(0.921875, 128)
+start:640 , end:768, from:1088
+(0.9453125, 128)
+start:768 , end:896, from:1088
+(0.9140625, 128)
+start:896 , end:1024, from:1088
+(0.875, 128)
+start:1024 , end:1087, from:1088
+(0.98412699, 63)
+Validation Accuracy = 0.917
+EPOCH 1 ...
+start:0 , end:128, from:4352
+start:128 , end:256, from:4352
+start:256 , end:384, from:4352
+start:384 , end:512, from:4352
+start:512 , end:640, from:4352
+start:640 , end:768, from:4352
+start:768 , end:896, from:4352
+start:896 , end:1024, from:4352
+start:1024 , end:1152, from:4352
+start:1152 , end:1280, from:4352
+start:1280 , end:1408, from:4352
+start:1408 , end:1536, from:4352
+start:1536 , end:1664, from:4352
+start:1664 , end:1792, from:4352
+start:1792 , end:1920, from:4352
+start:1920 , end:2048, from:4352
+start:2048 , end:2176, from:4352
+start:2176 , end:2304, from:4352
+start:2304 , end:2432, from:4352
+start:2432 , end:2560, from:4352
+start:2560 , end:2688, from:4352
+start:2688 , end:2816, from:4352
+start:2816 , end:2944, from:4352
+start:2944 , end:3072, from:4352
+start:3072 , end:3200, from:4352
+start:3200 , end:3328, from:4352
+start:3328 , end:3456, from:4352
+start:3456 , end:3584, from:4352
+start:3584 , end:3712, from:4352
+start:3712 , end:3840, from:4352
+start:3840 , end:3968, from:4352
+start:3968 , end:4096, from:4352
+start:4096 , end:4224, from:4352
+start:4224 , end:4352, from:4352
+start:0 , end:128, from:1088
+(0.9375, 128)
+start:128 , end:256, from:1088
+(0.8984375, 128)
+start:256 , end:384, from:1088
+(0.9375, 128)
+start:384 , end:512, from:1088
+(0.9375, 128)
+start:512 , end:640, from:1088
+(0.9375, 128)
+start:640 , end:768, from:1088
+(0.9453125, 128)
+start:768 , end:896, from:1088
+(0.921875, 128)
+start:896 , end:1024, from:1088
+(0.90625, 128)
+start:1024 , end:1087, from:1088
+(0.98412699, 63)
+Validation Accuracy = 0.930
+EPOCH 2 ...
+start:0 , end:128, from:4352
+start:128 , end:256, from:4352
+start:256 , end:384, from:4352
+start:384 , end:512, from:4352
+start:512 , end:640, from:4352
+2017-12-13 17:12:32.671065: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:12:32.671575: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:12:32.671826: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:12:32.672069: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:12:32.672316: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+(0.9296875, 128)
+(0.921875, 128)
+(0.9140625, 128)
+(0.921875, 128)
+(0.890625, 128)
+(0.875, 128)
+(0.921875, 128)
+(0.9453125, 128)
+(0.95238096, 63)
+Validation Accuracy = 0.916
+EPOCH 1 ...
+(0.9296875, 128)
+(0.9296875, 128)
+(0.9609375, 128)
+(0.921875, 128)
+(0.90625, 128)
+(0.890625, 128)
+(0.9375, 128)
+(0.9609375, 128)
+(0.95238096, 63)
+Validation Accuracy = 0.930
+EPOCH 2 ...
+HTTPSConnectionPool(host='s3.us-west-2.amazonaws.com', port=443): Read timed out.
+Traceback (most recent call last):
+  File "src/tl_detector/light_classification/traffic_light_classifier/train.py", line 170, in <module>
+    start()
+  File "src/tl_detector/light_classification/traffic_light_classifier/train.py", line 161, in start
+    sess.run(optimizer, feed_dict={x: X_batch, y: y_batch, drop_out:0.5})
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 895, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1093, in _run
+    np_val = np.asarray(subfeed_val, dtype=subfeed_dtype)
+  File "/usr/local/lib/python2.7/dist-packages/numpy/core/numeric.py", line 531, in asarray
+    return array(a, dtype, copy=False, order=order)
+ValueError: setting an array element with a sequence.
+2017-12-13 17:36:16.891132: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:36:16.891874: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:36:16.892554: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:36:16.893000: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:36:16.893443: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.9375, 64)
+start:64 , end:128
+(0.90625, 64)
+start:128 , end:192
+(0.9375, 64)
+start:192 , end:256
+(0.875, 64)
+start:256 , end:320
+2017-12-13 17:46:25.091320: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:46:25.091636: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:46:25.091888: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:46:25.092098: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-13 17:46:25.092345: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.921875, 64)
+start:128 , end:192
+(0.9375, 64)
+start:192 , end:256
+(0.953125, 64)
+start:256 , end:320
+(0.921875, 64)
+start:320 , end:384
+(0.984375, 64)
+start:384 , end:448
+(0.953125, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(0.953125, 64)
+start:576 , end:640
+(0.921875, 64)
+start:640 , end:704
+(0.90625, 64)
+start:704 , end:768
+(0.921875, 64)
+start:768 , end:832
+(0.90625, 64)
+start:832 , end:896
+(0.953125, 64)
+start:896 , end:960
+(0.953125, 64)
+start:960 , end:1024
+(0.90625, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.938
+EPOCH 1 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.921875, 64)
+start:128 , end:192
+(0.953125, 64)
+start:192 , end:256
+(0.953125, 64)
+start:256 , end:320
+(0.9375, 64)
+start:320 , end:384
+(0.984375, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.921875, 64)
+start:640 , end:704
+(0.921875, 64)
+start:704 , end:768
+(0.96875, 64)
+start:768 , end:832
+(0.90625, 64)
+start:832 , end:896
+(0.953125, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.90625, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.947
+EPOCH 2 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.921875, 64)
+start:128 , end:192
+(0.953125, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.9375, 64)
+start:320 , end:384
+(0.96875, 64)
+start:384 , end:448
+(0.984375, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(0.984375, 64)
+start:576 , end:640
+(0.921875, 64)
+start:640 , end:704
+(0.921875, 64)
+start:704 , end:768
+(1.0, 64)
+start:768 , end:832
+(0.921875, 64)
+start:832 , end:896
+(0.9375, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.921875, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.951
+EPOCH 3 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.9375, 64)
+start:320 , end:384
+(0.96875, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.921875, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(1.0, 64)
+start:768 , end:832
+(0.921875, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.921875, 64)
+start:1024 , end:1088
+(0.953125, 64)
+Validation Accuracy = 0.960
+EPOCH 4 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(1.0, 64)
+start:64 , end:128
+(0.9375, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.9375, 64)
+start:320 , end:384
+(0.96875, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(1.0, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.984375, 64)
+start:960 , end:1024
+(0.921875, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.962
+EPOCH 5 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(1.0, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.9375, 64)
+start:320 , end:384
+(0.96875, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(1.0, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.921875, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.962
+EPOCH 6 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(1.0, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.953125, 64)
+start:320 , end:384
+(0.984375, 64)
+start:384 , end:448
+(0.984375, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(1.0, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.921875, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.966
+EPOCH 7 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(1.0, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.953125, 64)
+start:320 , end:384
+(0.984375, 64)
+start:384 , end:448
+(0.984375, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.953125, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(0.984375, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.967
+EPOCH 8 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(1.0, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.984375, 64)
+start:320 , end:384
+(0.984375, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.953125, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(0.984375, 64)
+start:768 , end:832
+(0.984375, 64)
+start:832 , end:896
+(0.984375, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.971
+EPOCH 9 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(1.0, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.984375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.984375, 64)
+start:320 , end:384
+(0.984375, 64)
+start:384 , end:448
+(0.984375, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(1.0, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(1.0, 64)
+start:768 , end:832
+(0.96875, 64)
+start:832 , end:896
+(0.984375, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.9375, 64)
+Validation Accuracy = 0.971
+Model saved
+2017-12-14 01:38:30.063890: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-14 01:38:30.065143: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-14 01:38:30.065630: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-14 01:38:30.066318: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-14 01:38:30.066821: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Training...
+EPOCH 0 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.796875, 64)
+start:64 , end:128
+(0.84375, 64)
+start:128 , end:192
+(0.84375, 64)
+start:192 , end:256
+(0.84375, 64)
+start:256 , end:320
+(0.8125, 64)
+start:320 , end:384
+(0.84375, 64)
+start:384 , end:448
+(0.796875, 64)
+start:448 , end:512
+(0.859375, 64)
+start:512 , end:576
+(0.859375, 64)
+start:576 , end:640
+(0.890625, 64)
+start:640 , end:704
+(0.859375, 64)
+start:704 , end:768
+(0.828125, 64)
+start:768 , end:832
+(0.84375, 64)
+start:832 , end:896
+(0.84375, 64)
+start:896 , end:960
+(0.8125, 64)
+start:960 , end:1024
+(0.859375, 64)
+start:1024 , end:1088
+(0.796875, 64)
+Validation Accuracy = 0.837
+EPOCH 1 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.921875, 64)
+start:64 , end:128
+(0.9375, 64)
+start:128 , end:192
+(0.859375, 64)
+start:192 , end:256
+(0.90625, 64)
+start:256 , end:320
+(0.890625, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.921875, 64)
+start:448 , end:512
+(0.90625, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.90625, 64)
+start:640 , end:704
+(0.921875, 64)
+start:704 , end:768
+(0.859375, 64)
+start:768 , end:832
+(0.90625, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.9375, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.828125, 64)
+Validation Accuracy = 0.914
+EPOCH 2 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.921875, 64)
+start:64 , end:128
+(0.9375, 64)
+start:128 , end:192
+(0.890625, 64)
+start:192 , end:256
+(0.90625, 64)
+start:256 , end:320
+(0.890625, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.921875, 64)
+start:448 , end:512
+(0.921875, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.9375, 64)
+start:704 , end:768
+(0.90625, 64)
+start:768 , end:832
+(0.9375, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.9375, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.84375, 64)
+Validation Accuracy = 0.925
+EPOCH 3 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.921875, 64)
+start:64 , end:128
+(0.9375, 64)
+start:128 , end:192
+(0.890625, 64)
+start:192 , end:256
+(0.953125, 64)
+start:256 , end:320
+(0.90625, 64)
+start:320 , end:384
+(0.96875, 64)
+start:384 , end:448
+(0.9375, 64)
+start:448 , end:512
+(0.9375, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.953125, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(0.90625, 64)
+start:768 , end:832
+(0.9375, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.9375, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.875, 64)
+Validation Accuracy = 0.935
+EPOCH 4 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.921875, 64)
+start:64 , end:128
+(0.9375, 64)
+start:128 , end:192
+(0.90625, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.921875, 64)
+start:320 , end:384
+(0.96875, 64)
+start:384 , end:448
+(0.9375, 64)
+start:448 , end:512
+(0.96875, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.96875, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(0.921875, 64)
+start:768 , end:832
+(0.9375, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.9375, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.875, 64)
+Validation Accuracy = 0.941
+EPOCH 5 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.921875, 64)
+start:64 , end:128
+(0.9375, 64)
+start:128 , end:192
+(0.9375, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.9375, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.96875, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(0.9375, 64)
+start:768 , end:832
+(0.9375, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.9375, 64)
+start:960 , end:1024
+(0.9375, 64)
+start:1024 , end:1088
+(0.875, 64)
+Validation Accuracy = 0.944
+EPOCH 6 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.953125, 64)
+start:64 , end:128
+(0.953125, 64)
+start:128 , end:192
+(0.953125, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.953125, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.96875, 64)
+start:512 , end:576
+(0.96875, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.953125, 64)
+start:704 , end:768
+(0.9375, 64)
+start:768 , end:832
+(0.9375, 64)
+start:832 , end:896
+(0.96875, 64)
+start:896 , end:960
+(0.953125, 64)
+start:960 , end:1024
+(0.953125, 64)
+start:1024 , end:1088
+(0.890625, 64)
+Validation Accuracy = 0.951
+EPOCH 7 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.96875, 64)
+start:128 , end:192
+(0.953125, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.953125, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.96875, 64)
+start:512 , end:576
+(0.953125, 64)
+start:576 , end:640
+(0.9375, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(0.96875, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.984375, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.96875, 64)
+start:1024 , end:1088
+(0.90625, 64)
+Validation Accuracy = 0.960
+EPOCH 8 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.96875, 64)
+start:128 , end:192
+(1.0, 64)
+start:192 , end:256
+(0.953125, 64)
+start:256 , end:320
+(0.953125, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.953125, 64)
+start:512 , end:576
+(0.953125, 64)
+start:576 , end:640
+(0.953125, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(0.96875, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.984375, 64)
+start:896 , end:960
+(0.96875, 64)
+start:960 , end:1024
+(0.96875, 64)
+start:1024 , end:1088
+(0.921875, 64)
+Validation Accuracy = 0.963
+EPOCH 9 ...
+start:0 , end:64
+start:64 , end:128
+start:128 , end:192
+start:192 , end:256
+start:256 , end:320
+start:320 , end:384
+start:384 , end:448
+start:448 , end:512
+start:512 , end:576
+start:576 , end:640
+start:640 , end:704
+start:704 , end:768
+start:768 , end:832
+start:832 , end:896
+start:896 , end:960
+start:960 , end:1024
+start:1024 , end:1088
+start:1088 , end:1152
+start:1152 , end:1216
+start:1216 , end:1280
+start:1280 , end:1344
+start:1344 , end:1408
+start:1408 , end:1472
+start:1472 , end:1536
+start:1536 , end:1600
+start:1600 , end:1664
+start:1664 , end:1728
+start:1728 , end:1792
+start:1792 , end:1856
+start:1856 , end:1920
+start:1920 , end:1984
+start:1984 , end:2048
+start:2048 , end:2112
+start:2112 , end:2176
+start:2176 , end:2240
+start:2240 , end:2304
+start:2304 , end:2368
+start:2368 , end:2432
+start:2432 , end:2496
+start:2496 , end:2560
+start:2560 , end:2624
+start:2624 , end:2688
+start:2688 , end:2752
+start:2752 , end:2816
+start:2816 , end:2880
+start:2880 , end:2944
+start:2944 , end:3008
+start:3008 , end:3072
+start:3072 , end:3136
+start:3136 , end:3200
+start:3200 , end:3264
+start:3264 , end:3328
+start:3328 , end:3392
+start:3392 , end:3456
+start:3456 , end:3520
+start:3520 , end:3584
+start:3584 , end:3648
+start:3648 , end:3712
+start:3712 , end:3776
+start:3776 , end:3840
+start:3840 , end:3904
+start:3904 , end:3968
+start:3968 , end:4032
+start:4032 , end:4096
+start:4096 , end:4160
+start:4160 , end:4224
+start:4224 , end:4288
+start:4288 , end:4352
+start:0 , end:64
+(0.984375, 64)
+start:64 , end:128
+(0.96875, 64)
+start:128 , end:192
+(1.0, 64)
+start:192 , end:256
+(0.96875, 64)
+start:256 , end:320
+(0.953125, 64)
+start:320 , end:384
+(0.953125, 64)
+start:384 , end:448
+(0.96875, 64)
+start:448 , end:512
+(0.96875, 64)
+start:512 , end:576
+(0.953125, 64)
+start:576 , end:640
+(0.953125, 64)
+start:640 , end:704
+(0.96875, 64)
+start:704 , end:768
+(0.96875, 64)
+start:768 , end:832
+(0.953125, 64)
+start:832 , end:896
+(0.984375, 64)
+start:896 , end:960
+(0.984375, 64)
+start:960 , end:1024
+(0.96875, 64)
+start:1024 , end:1088
+(0.921875, 64)
+Validation Accuracy = 0.966
+Model saved

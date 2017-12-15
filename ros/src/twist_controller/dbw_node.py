@@ -54,12 +54,14 @@ class DBWNode(object):
         self.brake_pub = rospy.Publisher('/vehicle/brake_cmd',
                                          BrakeCmd, queue_size=1)
 
+        self.max_velocity = rospy.get_param('/waypoint_loader/velocity')
+
         # TODO: Create `TwistController` object
         self.controller = Controller(wheel_base=wheel_base, steer_ratio= steer_ratio,\
 				     decel_limit=decel_limit, accel_limit= accel_limit,\
                                      min_speed=0.0, max_lat_accel=max_lat_accel, max_steer_angle=max_steer_angle,\
 				     fuel_capacity=fuel_capacity, wheel_radius=wheel_radius,\
-				     vehicle_mass = vehicle_mass)
+				     vehicle_mass = vehicle_mass, max_velocity=self.max_velocity)
 
         # TODO: Subscribe to all the topics you need to
 
@@ -75,6 +77,8 @@ class DBWNode(object):
         self.number_waypoints_ahead=None
         rospy.Subscriber('/final_waypoints', Lane, self.final_waypoints_cb)
 
+
+
         self.loop()
 
     def current_velocity_cb(self, data):
@@ -83,6 +87,7 @@ class DBWNode(object):
 
     def final_waypoints_cb(self,data):
         self.number_waypoints_ahead=len(data.waypoints)
+        rospy.loginfo(self.number_waypoints_ahead)
         pass
 
     def twist_cmd_cb(self,data):

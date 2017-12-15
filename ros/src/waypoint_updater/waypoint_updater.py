@@ -3,7 +3,7 @@
 import rospy
 from geometry_msgs.msg import PoseStamped
 from styx_msgs.msg import Lane, Waypoint
-
+from std_msgs.msg import Int32
 import math
 
 '''
@@ -26,31 +26,34 @@ LOOKAHEAD_WPS = 200 # Number of waypoints we will publish. You can change this n
 
 class WaypointUpdater(object):
     def __init__(self):
-        rospy.init_node('waypoint_updater')
+        self.red_light_active = False
+        rospy.init_node('waypoint_updater', log_level=rospy.DEBUG)
 
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
+       
 
         # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
-
+        rospy.Subscriber('/traffic_waypoint',Int32, self.traffic_cb)
 
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
 
         # TODO: Add other member variables you need below
         self.current_pose=None
         self.waypoints =[]
-
         rospy.spin()
 
     def pose_cb(self, msg):
         # TODO: Implement
         waypoints_ahead = Lane()
     	waypoints_ahead.header = msg.header
-    	if len(self.waypoints) > 0:
+        waypoints_ahead.waypoints = []
+    	if len(self.waypoints) > 0 and not self.red_light_active:
     	    for waypoint in self.waypoints:
     		if waypoint.pose.pose.position.x > msg.pose.position.x and len(waypoints_ahead.waypoints)< LOOKAHEAD_WPS:
     		    waypoints_ahead.waypoints.append(waypoint)
-            self.final_waypoints_pub.publish(waypoints_ahead)
+
+        self.final_waypoints_pub.publish(waypoints_ahead)
         pass
 
     def waypoints_cb(self, waypoints):
@@ -59,7 +62,15 @@ class WaypointUpdater(object):
         pass
 
     def traffic_cb(self, msg):
-        # TODO: Callback for /traffic_waypoint message. Implement
+        # TODO: Callback for /traffic_waypoint message. Implement\
+        if msg.data == 0:
+            self.set_waypoint_velocity(self.waypoints, msg.data, 0.0)
+            self.red_light_active = True
+        else:
+            self.red_light_active = False
+        # else:
+        #     self.set_waypoint_velocity(self.waypoints, msg.data, 0)
+        # rospy.loginfo('velocity {}'.format(self.velocity))
         pass
 
     def obstacle_cb(self, msg):
