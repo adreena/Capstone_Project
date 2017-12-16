@@ -5,6 +5,7 @@ from std_msgs.msg import Bool
 from styx_msgs.msg import Lane
 from dbw_mkz_msgs.msg import ThrottleCmd, SteeringCmd, BrakeCmd, SteeringReport
 from geometry_msgs.msg import TwistStamped
+from std_msgs.msg import Int32
 import math
 
 from twist_controller import Controller
@@ -34,7 +35,7 @@ that we have created in the `__init__` function.
 
 class DBWNode(object):
     def __init__(self):
-        rospy.init_node('dbw_node')
+        rospy.init_node('dbw_node', log_level=rospy.DEBUG)
 
         vehicle_mass = rospy.get_param('~vehicle_mass', 1736.35)
         fuel_capacity = rospy.get_param('~fuel_capacity', 13.5)
@@ -59,7 +60,7 @@ class DBWNode(object):
         # TODO: Create `TwistController` object
         self.controller = Controller(wheel_base=wheel_base, steer_ratio= steer_ratio,\
 				     decel_limit=decel_limit, accel_limit= accel_limit,\
-                                     min_speed=0.0, max_lat_accel=max_lat_accel, max_steer_angle=max_steer_angle,\
+                     min_speed=0.0, max_lat_accel=max_lat_accel, max_steer_angle=max_steer_angle,\
 				     fuel_capacity=fuel_capacity, wheel_radius=wheel_radius,\
 				     vehicle_mass = vehicle_mass, max_velocity=self.max_velocity)
 
@@ -77,8 +78,8 @@ class DBWNode(object):
         self.number_waypoints_ahead=None
         rospy.Subscriber('/final_waypoints', Lane, self.final_waypoints_cb)
 
-
-
+        # rospy.Subscriber('/traffic_waypoint',Int32, self.traffic_cb)
+        # rospy.loginfo('dbw Initialized')
         self.loop()
 
     def current_velocity_cb(self, data):
@@ -90,10 +91,22 @@ class DBWNode(object):
         rospy.loginfo(self.number_waypoints_ahead)
         pass
 
+    def traffic_cb(self, msg):
+        # TODO: Callback for /traffic_waypoint message. Implement\
+        # if msg.data != -1:
+        #     self.set_waypoint_velocity(self.waypoints, msg.data, 0.0)
+        #     self.red_light_active = True
+        # else: 
+        #    self.red_light_active = False
+        #    closest_waypoint_ahead  = self.get_closest_waypoint_ahead(self.current_pose)
+        #    self.set_waypoint_velocity(self.waypoints, closest_waypoint_ahead, 10.0)
+           # rospy.logdebug('red light state {} {}'.format(self.red_light_active, self.get_waypoint_velocity(self.waypoints[closest_waypoint_ahead])))
+        pass
+
     def twist_cmd_cb(self,data):
         #recieved target velocity
         self.target_velocity = data
-        rospy.loginfo("twist_cmd_cb")
+        # rospy.loginfo("twist_cmd_cb")
         #throttle, brake, steer, sample_time, error_v = self.controller.control(current_velocity_linear=self.target_velocity.twist.linear,\
         #                target_velocity_angular=self.target_velocity.twist.angular,\
         #                target_velocity_linear=self.current_velocity.twist.linear,\
@@ -104,12 +117,13 @@ class DBWNode(object):
         pass
 
     def dbw_enabled_cb(self, data):
-        rospy.loginfo('dwb_enabled_cb:{}'.format(data.data))
+        # rospy.loginfo('dwb_enabled_cb:{}'.format(data.data))
         self.dbw_enabled = data.data
         pass
 
     def loop(self):
         rate = rospy.Rate(50) # 50Hz
+        # rospy.logdebug("#ahead :{}".format(self.number_waypoints_ahead))
         while not rospy.is_shutdown():
             # TODO: Get predicted throttle, brake, and steering using `twist_controller`
             # You should only publish the control commands if dbw is enabled
@@ -124,6 +138,11 @@ class DBWNode(object):
             	target_velocity_angular=self.target_velocity.twist.angular,\
             	target_velocity_linear=self.current_velocity.twist.linear,\
             	dbw_enabled=self.dbw_enabled, number_waypoints_ahead=self.number_waypoints_ahead)
+
+            if self.target_velocity.twist.linear.x == 0.0:
+                rospy.logdebug('Target_Velocity 0.0 throttle:{}'.format(throttle))
+                # brake = self.controller.apply_brake()
+            
             if brake != 0.0:
                 rospy.loginfo("published_loop {0},{1},{2}".format(throttle, brake, steer))
             if self.dbw_enabled:
@@ -150,4 +169,8 @@ class DBWNode(object):
 
 
 if __name__ == '__main__':
-    DBWNode()
+    try:
+        DBWNode()
+    except rospy.ROSInterruptException:
+        rospy.logerr('Could not start dbw node.')
+

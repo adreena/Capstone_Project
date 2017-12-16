@@ -27,6 +27,7 @@ class TLDetector(object):
         self.skip_next = False
         self.skip_count = 0
         self.closest_stop_line_index = -1
+        self.detected_not_red = 0
 
         self.listener = tf.TransformListener()
 
@@ -93,22 +94,30 @@ class TLDetector(object):
         of times till we start using it. Otherwise the previous stable state is
         used.
         # '''
-        if self.state != state:
-            self.state_count = 0
-            self.state = state
-        elif self.state_count >= STATE_COUNT_THRESHOLD:
-            self.last_state = self.state
-            light_wp = light_wp if state == TrafficLight.RED else -1
-            self.last_wp = light_wp
-            if light_wp > -1:
-                # rospy.loginfo ("* index:{} color:{}".format(light_wp,self.state))
-                self.upcoming_red_light_pub.publish(Int32(light_wp))
+        # only publish when light is red
+        
+        if state == TrafficLight.RED :
+            self.detected_not_red = 0
+            if self.state != state:
+                self.state_count = 0
+                self.state = state
+            elif self.state_count >= STATE_COUNT_THRESHOLD:
+                self.last_state = self.state
+                light_wp = light_wp if state == TrafficLight.RED else -1
+                self.last_wp = light_wp
+                if light_wp > -1:
+                    # rospy.loginfo ("* index:{} color:{}".format(light_wp,self.state))
+                    self.upcoming_red_light_pub.publish(Int32(light_wp))
+            else:
+                if light_wp > -1:
+                    # rospy.loginfo("* index:{} color:{}".format(self.last_wp,self.state))
+                    self.upcoming_red_light_pub.publish(Int32(self.last_wp))
+                    
+            self.state_count += 1
         else:
-            if light_wp > -1:
-                # rospy.loginfo("* index:{} color:{}".format(self.last_wp,self.state))
-                self.upcoming_red_light_pub.publish(Int32(self.last_wp))
-                
-        self.state_count += 1
+            if self.detected_not_red <3:
+                self.upcoming_red_light_pub.publish(Int32(-1))
+                self.detected_not_red +=1
 
 
     def get_closest_waypoint(self, pose):
@@ -185,7 +194,7 @@ class TLDetector(object):
             waypoint_position = waypoint.pose.pose.position
             distance = math.sqrt((waypoint_position.x - stop_line_coords[0])**2 +\
                                  (waypoint_position.y - stop_line_coords[1])**2 )
-            if distance < min_distance:
+            if distance < min_distance and waypoint_position.x < stop_line_coords[0]:
                 min_distance = distance
                 min_index = iterator
             iterator+=1

@@ -48,10 +48,17 @@ class WaypointUpdater(object):
         waypoints_ahead = Lane()
     	waypoints_ahead.header = msg.header
         waypoints_ahead.waypoints = []
-    	if len(self.waypoints) > 0 and not self.red_light_active:
+        self.current_pose = msg.pose
+    	if len(self.waypoints) > 0:
+            i = 0 
     	    for waypoint in self.waypoints:
-    		if waypoint.pose.pose.position.x > msg.pose.position.x and len(waypoints_ahead.waypoints)< LOOKAHEAD_WPS:
-    		    waypoints_ahead.waypoints.append(waypoint)
+                if waypoint.pose.pose.position.x > msg.pose.position.x and len(waypoints_ahead.waypoints)< LOOKAHEAD_WPS:
+                    waypoints_ahead.waypoints.append(waypoint)
+                    if self.red_light_active is False:
+                        self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 10)
+                    else:
+                        self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 0)
+                    i+=1
 
         self.final_waypoints_pub.publish(waypoints_ahead)
         pass
@@ -63,19 +70,47 @@ class WaypointUpdater(object):
 
     def traffic_cb(self, msg):
         # TODO: Callback for /traffic_waypoint message. Implement\
-        if msg.data == 0:
+        if msg.data != -1:
             self.set_waypoint_velocity(self.waypoints, msg.data, 0.0)
             self.red_light_active = True
-        else:
-            self.red_light_active = False
-        # else:
-        #     self.set_waypoint_velocity(self.waypoints, msg.data, 0)
-        # rospy.loginfo('velocity {}'.format(self.velocity))
+        else: 
+           self.red_light_active = False
+           # closest_waypoint_ahead  = self.get_closest_waypoint_ahead(self.current_pose)
+           # self.set_waypoint_velocity(self.waypoints, closest_waypoint_ahead, 10.0)
+           # rospy.logdebug('red light state {} {}'.format(self.red_light_active, self.get_waypoint_velocity(self.waypoints[closest_waypoint_ahead])))
         pass
 
     def obstacle_cb(self, msg):
         # TODO: Callback for /obstacle_waypoint message. We will implement it later
         pass
+
+
+    def get_closest_waypoint_ahead(self, pose):
+        """Identifies the closest path waypoint to the given position
+            https://en.wikipedia.org/wiki/Closest_pair_of_points_problem
+        Args:
+            pose (Pose): position to match a waypoint to
+
+        Returns:
+            int: index of the closest waypoint in self.waypoints
+
+        """
+        #TODO implemented***
+        min_index = 0
+        if len(self.waypoints) >0:
+            min_distance = float('inf')
+            iterator = 0
+            for waypoint in self.waypoints:
+                waypoint_position = waypoint.pose.pose.position
+                target_postion = pose.position
+                distance = math.sqrt((waypoint_position.x - target_postion.x)**2 +\
+                                     (waypoint_position.y - target_postion.y)**2  +\
+                                     (waypoint_position.z - target_postion.z)**2)
+                if distance < min_distance: # and waypoint_position.x > target_postion.x:
+                    min_distance = distance
+                    min_index = iterator
+                iterator+=1
+        return min_index
 
     def get_waypoint_velocity(self, waypoint):
         return waypoint.twist.twist.linear.x
