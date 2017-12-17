@@ -20,6 +20,9 @@ class Controller(object):
         self.brake_active = False
         self.prev_time = None
 
+        self._test_timer = None
+        self._test_light_state= 0
+
         for key in kwargs:
             if key == "wheel_base":
         	    self.wheel_base = kwargs[key]
@@ -63,7 +66,7 @@ class Controller(object):
         if not kwargs["dbw_enabled"] or self.prev_time is None : 
             self.prev_time = rospy.Time.now().to_sec()
 
-            return 0.0, 0.0, 0.0
+            return 0.0, 0.0, 0.0, 0.0, 0.0
 
         brake = 0
         current_time = rospy.Time.now().to_sec()
@@ -78,7 +81,33 @@ class Controller(object):
         sample_time = max(current_time - self.prev_time, SAMPLE_TIME_MIN)
         
         # ENDING points ahead should brake and stop the car
+
+        # possible scenarios 
+        # case red light then green in 10 sec
+        # target_velocity_linear.x = 10
+
+        # if self._test_timer is None:
+        #     self._test_timer = current_time + 10.0
+        #     self._test_light_state  =0
+        
+        # distance_to_light = 50
+        # light_state = self._test_light_state 
+
+        # if current_time > self._test_timer :
+        #     if self._test_light_state == 0:
+        #         self._test_light_state = 2
+        #     elif self._test_light_state == 2:
+        #         self._test_light_state = 1
+        #     elif self._test_light_state == 1:
+        #         self._test_light_state = 0
+
+        #     light_state = self._test_light_state
+        #     self._test_timer = current_time + 10.0
+
+
+
         if kwargs["number_waypoints_ahead"] < 150:
+            rospy.loginfo('applying 1')
             if kwargs["number_waypoints_ahead"] < 25:
                 brake = full_brake # ~360
             elif kwargs["number_waypoints_ahead"] < 50:
@@ -92,14 +121,13 @@ class Controller(object):
             
             throttle = 0.0
             steer = self.yaw_controller.get_steering(0, 0, current_velocity_linear.x)
-            return throttle, brake, steer
+            return throttle, brake, steer, current_time, self._test_light_state
 
         else:
-
+            
             max_speed_mps = self.max_velocity*ONE_MPH
             target_velocity = min(max_speed_mps, target_velocity_linear.x)
             v_error = target_velocity - current_velocity_linear.x
-
             if light_state == 0:
                 if distance_to_light < 15:
                     brake = full_brake
@@ -109,23 +137,23 @@ class Controller(object):
                     brake = 10
 
                 self.pid_throttle.reset()
-                return 0.,brake,0.
+                return 0.,brake,0., current_time,self._test_light_state 
+            elif light_state == 1:
+                brake = 10.
+                return 0.,brake,0., current_time,self._test_light_state 
             else:
-                if v_error < 0 :
-                    target_velocity_linear.x = 0 
-                    throttle = 0
-                else:
-                    v_decel = self.decel_limit*sample_time
-                    v_accel = self.accel_limit*sample_time
-                    v_error = min(v_error, v_accel)
-                    v_error = max(v_error, v_decel)
+                brake = 0.
+                v_decel = self.decel_limit*sample_time
+                v_accel = self.accel_limit*sample_time
+                v_error = min(v_error, v_accel)
+                v_error = max(v_error, v_decel)
 
-                    throttle = self.pid_throttle.step(error= v_error, sample_time=sample_time)
-                    throttle = max(throttle, 0.)
+                throttle = self.pid_throttle.step(error= v_error, sample_time=sample_time)
+                throttle = max(throttle, 0.)
 
                 # call yaw controller  linear_velocity, angular_velocity, current_velocity
                 steer = self.yaw_controller.get_steering(target_velocity_linear.x, target_velocity_angular.z,\
                 			    current_velocity_linear.x)
                 self.prev_time = current_time
                 # Return throttle, brake, steer
-                return throttle, brake, steer
+                return throttle, brake, steer, current_time, self._test_light_state

@@ -147,13 +147,13 @@ class DBWNode(object):
             # You should only publish the control commands if dbw is enabled
             
             if self.dbw_enabled is True:
-                throttle, brake, steer = self.controller.control(current_velocity_linear= self.current_velocity.twist.linear,\
+                throttle, brake, steer, _time, _state = self.controller.control(current_velocity_linear= self.current_velocity.twist.linear,\
                 target_velocity_angular=self.target_velocity.twist.angular,\
                 target_velocity_linear= self.target_velocity.twist.linear,\
                 dbw_enabled=self.dbw_enabled, number_waypoints_ahead=self.number_waypoints_ahead,\
                 distance_to_light= self.distance_to_light, light_state= self.light_state )
 
-                self.publish(throttle, brake, steer)
+                self.publish(throttle, brake, steer, _time, _state)
             else:
                 if self.dbw_enabled_count == 0:
                     self.dbw_enabled_count =1 
@@ -166,7 +166,7 @@ class DBWNode(object):
 
             rate.sleep()
 
-    def publish(self, throttle, brake, steer):
+    def publish(self, throttle, brake, steer,_time=0, _state=0):
         try:
             tcmd = ThrottleCmd()
             tcmd.enable = True
@@ -184,8 +184,7 @@ class DBWNode(object):
             bcmd.pedal_cmd_type = BrakeCmd.CMD_TORQUE
             bcmd.pedal_cmd = brake
             self.brake_pub.publish(bcmd)
-            if brake !=0:
-                rospy.loginfo('v_error: PUBLISH {} {} {}'.format(throttle, brake, steer))
+            rospy.loginfo('{} : PUBLISH throttl:{} , brake:{} , steer:{}, light:{}'.format(_time, throttle, brake, steer, _state))
         except Exception as err:
             rospy.loginfo('v_error: ERROR {} '.format(err))
 

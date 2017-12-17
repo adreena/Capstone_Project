@@ -75,9 +75,9 @@ class TLClassifier(object):
                 for i in range(boxes.shape[0]):
                     if (scores is None or scores[i] > min_score_thresh) and classes[i] == TRAFFIC_LIGHT_INDEX:
                         (left, right, top, bottom) = (boxes[i][0] * im_width, boxes[i][2] * im_width, boxes[i][1] * im_height, boxes[i][3] * im_height)
-                        image_cropped = image_pillow.crop((top, left,bottom,right ))
+                        image_cropped = image_pillow.crop((int(top), int(left) ,int(bottom), int(right) ))
                         lights.append(np.asarray(image_cropped.resize((RESIZE,RESIZE))))
-                        # image_cropped.save('{}/{}-{}-{}.png'.format(self.save_path,classes[i],dist,uuid.uuid4().hex))
+                        # image_cropped.save('{}/{}-{}-{}.png'.fcropormat(self.save_path,classes[i],dist,uuid.uuid4().hex))
         return lights
 
     def classify_traffic_light(self, lights):
@@ -133,6 +133,5 @@ class TLClassifier(object):
         # ssd call
         # bbox crop
         # test to keras model
-        color_label = self.find_traffic_light_color(image, dist)
-
-        return color_label
+        return self.find_traffic_light_color(image, dist)
+        

@@ -17,7 +17,7 @@ STATE_COUNT_THRESHOLD = 3
 
 class TLDetector(object):
     def __init__(self):
-        rospy.init_node('tl_detector')
+        rospy.init_node('tl_detector', log_level=rospy.DEBUG)
 
         self.pose = None
         self.waypoints = None
@@ -170,7 +170,7 @@ class TLDetector(object):
 
         """
         #TODO implemented***
-        close_light_position = 0
+        close_light_position = None
         if len(self.lights) >0:
             min_distance = float('inf')
             iterator = 0
@@ -240,29 +240,30 @@ class TLDetector(object):
 
         """
         light = None
-
         # List of positions that correspond to the line to stop in front of for a given intersection
         stop_line_positions = self.config['stop_line_positions']
-        try:
 
-            if self.waypoints is not None and self.lights is not None and self.light_classifier is not None:
-                if(self.pose):
-                    car_position_index = self.get_closest_waypoint(self.pose.pose)
+        if self.waypoints is not None and self.lights is not None and self.light_classifier is not None:
+            if(self.pose):
+                car_position_index = self.get_closest_waypoint(self.pose.pose)
+            
+            #TODO find the closest visible traffic light (if one exists)
 
-                #TODO find the closest visible traffic light (if one exists)
+            # closest_light_position_index = self.get_closest_light(self.pose.pose)
+            # light_position = self.lights[closest_light_position_index].pose.pose.position
+            light_position = self.get_closest_light(self.pose.pose)
+            car_position = self.waypoints[car_position_index].pose.pose.position
 
-                # closest_light_position_index = self.get_closest_light(self.pose.pose)
-                # light_position = self.lights[closest_light_position_index].pose.pose.position
-                light_position = self.get_closest_light(self.pose.pose)
-                car_position = self.waypoints[car_position_index].pose.pose.position
+
+            if light_position != None and car_position !=None:
                 light_to_car_distance = (light_position.x - car_position.x)
-
+                
                 #todo limit distance ssd starts detecting from 40 to 20 starts cutting traffic light from top
 
                 if light_to_car_distance > 0 and light_to_car_distance >= 20 and light_to_car_distance <= 40: # and self.skip_next is False:
                     # rospy.loginfo('Capturing')
                     closest_stop_line = float('-inf')
-
+                    
                     # find the closest stopline to the traffic light
                     count = 0
                     stop_line_index = -1
@@ -277,15 +278,12 @@ class TLDetector(object):
                         self.closest_stop_line_index = self.get_closest_stopline_wp(stop_line_positions[stop_line_index])
                         light = True
 
-            if light:
-                traffic_light_current_color = self.get_light_state(light,light_to_car_distance)
-                # rospy.loginfo('v_error class:{}'.format(traffic_light_current_color))
-                return self.closest_stop_line_index , traffic_light_current_color
-            else:
-                return -1, TrafficLight.UNKNOWN
-
-        except Exception as err:
-            rospy.loginfo('Exception:{}'.format(err))
+        if light:
+            traffic_light_current_color = self.get_light_state(light,light_to_car_distance)
+            # rospy.loginfo('class:{}'.format(traffic_light_current_color))
+            return self.closest_stop_line_index , traffic_light_current_color
+        
+        return -1, TrafficLight.UNKNOWN
 
 if __name__ == '__main__':
     try:
