@@ -27,14 +27,17 @@ LOOKAHEAD_WPS = 200 # Number of waypoints we will publish. You can change this n
 class WaypointUpdater(object):
     def __init__(self):
         self.red_light_active = False
-        rospy.init_node('waypoint_updater', log_level=rospy.DEBUG)
+        rospy.init_node('waypoint_updater')
 
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
-       
+        
+        
+        self.max_velocity = self.kmph2mps(rospy.get_param('/waypoint_loader/velocity'))
 
         # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
         rospy.Subscriber('/traffic_waypoint',Int32, self.traffic_cb)
+        rospy.Subscriber('/traffic_light_state',Int32, self.traffic_state_cb)
 
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
 
@@ -54,10 +57,20 @@ class WaypointUpdater(object):
     	    for waypoint in self.waypoints:
                 if waypoint.pose.pose.position.x > msg.pose.position.x and len(waypoints_ahead.waypoints)< LOOKAHEAD_WPS:
                     waypoints_ahead.waypoints.append(waypoint)
-                    if self.red_light_active is False:
-                        self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 10)
+                    # if self.red_light_active is False:
+                        # rospy.loginfo("red_light_active {}".format(self.red_light_active))
+                        # self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 10)
+                    if self.red_light_active is True:
+                        dist_to_vehicle = waypoint.pose.pose.position.x - msg.pose.position.x 
+                        if dist_to_vehicle < 5:
+                            self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 0)
+                        elif dist_to_vehicle <10:
+                            self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 5)
+                        else:
+                            self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
                     else:
-                        self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 0)
+                        # rospy.loginfo('v_error: should set to 10')
+                        self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
                     i+=1
 
         self.final_waypoints_pub.publish(waypoints_ahead)
@@ -70,20 +83,27 @@ class WaypointUpdater(object):
 
     def traffic_cb(self, msg):
         # TODO: Callback for /traffic_waypoint message. Implement\
-        if msg.data != -1:
-            self.set_waypoint_velocity(self.waypoints, msg.data, 0.0)
+        # if msg.data != -1:
+        #     self.set_waypoint_velocity(self.waypoints, msg.data, 0.0)
+        #     self.red_light_active = True
+        # else: 
+        #     self.red_light_active = False
+           # closest_waypoint_ahead  = self.get_closest_waypoint_ahead(self.current_pose)
+        pass
+
+    def traffic_state_cb(self, msg):
+        if msg.data == 0:
             self.red_light_active = True
         else: 
-           self.red_light_active = False
-           # closest_waypoint_ahead  = self.get_closest_waypoint_ahead(self.current_pose)
-           # self.set_waypoint_velocity(self.waypoints, closest_waypoint_ahead, 10.0)
-           # rospy.logdebug('red light state {} {}'.format(self.red_light_active, self.get_waypoint_velocity(self.waypoints[closest_waypoint_ahead])))
+            self.red_light_active = False
         pass
 
     def obstacle_cb(self, msg):
         # TODO: Callback for /obstacle_waypoint message. We will implement it later
         pass
 
+    def kmph2mps(self, velocity_kmph):
+        return (velocity_kmph * 1000.) / (60. * 60.)
 
     def get_closest_waypoint_ahead(self, pose):
         """Identifies the closest path waypoint to the given position

@@ -41,67 +41,91 @@ class Controller(object):
                 self.wheel_radius = kwargs[key]
             elif key == "vehicle_mass":
                 self.vehicle_mass = kwargs[key]
-            elif key == "max_velocity":
-                # kmh to mph
-                self.max_velocity = kwargs[key] * 0.621371
+            elif key == "max_velocity": 
+                self.max_velocity = kwargs[key]
+            
 
         self.yaw_controller = YawController(self.wheel_base, self.steer_ratio,\
                               self.min_speed, self.max_lat_accel, self.max_steer_angle)
-        self.pid_throttle = PID(kp=2.0, ki=0.00001, kd=8.0)
+        self.pid_throttle = PID(kp=8., ki=0.0, kd=0.5)
 
         self.debug_counter =0
         pass
 
     def apply_brake(self):
-        self.brake_active= True
         acceleration = self.accel_limit
-        self.pid_throttle.reset()
         return (self.vehicle_mass + self.fuel_capacity * GAS_DENSITY )* acceleration * self.wheel_radius
 
     def control(self, *args, **kwargs):
-        # TODO: Change the arg, kwarg list to suit your needs
-        # Return throttle, brake, steer
-        if not kwargs["dbw_enabled"] or self.prev_time is None : # or kwargs["number_waypoints_ahead"] <= 10:
+
+        full_brake = self.apply_brake()
+        
+        if not kwargs["dbw_enabled"] or self.prev_time is None : 
             self.prev_time = rospy.Time.now().to_sec()
-            self.pid_throttle.reset()
+
             return 0.0, 0.0, 0.0
 
         brake = 0
-        if kwargs["number_waypoints_ahead"] < 50: # or self.debug_counter > 1000:
-            # no points ahead should brake and stop the car
-            brake = self.apply_brake(self.accel_limit)
-        else:
-            self.brake_active = False
-
         current_time = rospy.Time.now().to_sec()
 
         # TODO: Change the arg, kwarg list to suit your needs
         current_velocity_linear = kwargs["current_velocity_linear"]
         target_velocity_linear = kwargs["target_velocity_linear"]
         target_velocity_angular = kwargs["target_velocity_angular"]
-
+        distance_to_light= kwargs["distance_to_light"]
+        light_state= kwargs["light_state"]
         # create pid for throttle sample_time, cte
-        sample_time = current_time - self.prev_time
-
+        sample_time = max(current_time - self.prev_time, SAMPLE_TIME_MIN)
         
-        if self.brake_active:
+        # ENDING points ahead should brake and stop the car
+        if kwargs["number_waypoints_ahead"] < 150:
+            if kwargs["number_waypoints_ahead"] < 25:
+                brake = full_brake # ~360
+            elif kwargs["number_waypoints_ahead"] < 50:
+                brake = full_brake * 0.5 
+            elif kwargs["number_waypoints_ahead"] < 75:
+                brake = full_brake * 0.1 
+            elif kwargs["number_waypoints_ahead"] < 125:
+                brake = full_brake * 0.05 
+            else:
+                brake = full_brake * 0.01 # ~3.6
+            
             throttle = 0.0
-            target_velocity_linear.x = 0.0
+            steer = self.yaw_controller.get_steering(0, 0, current_velocity_linear.x)
+            return throttle, brake, steer
+
         else:
+
             max_speed_mps = self.max_velocity*ONE_MPH
             target_velocity = min(max_speed_mps, target_velocity_linear.x)
             v_error = target_velocity - current_velocity_linear.x
-            v_decel = self.decel_limit*sample_time
-            v_accel = self.accel_limit*sample_time
-            v_error = min(v_error, v_accel)
-            v_error = max(v_error, v_decel)
-            throttle = self.pid_throttle.step(error= v_error, sample_time=sample_time)
-            throttle = min(throttle, max_speed_mps)
 
-        # call yaw controller  linear_velocity, angular_velocity, current_velocity
-        steer = self.yaw_controller.get_steering(target_velocity_linear.x, target_velocity_angular.z,\
-        			    current_velocity_linear.x)
-        self.prev_time = current_time
-        self.debug_counter +=1
-        # Return throttle, brake, steer
-        return throttle, brake, steer
+            if light_state == 0:
+                if distance_to_light < 15:
+                    brake = full_brake
+                elif distance_to_light < 25:
+                    brake = 20
+                else:
+                    brake = 10
+
+                self.pid_throttle.reset()
+                return 0.,brake,0.
+            else:
+                if v_error < 0 :
+                    target_velocity_linear.x = 0 
+                    throttle = 0
+                else:
+                    v_decel = self.decel_limit*sample_time
+                    v_accel = self.accel_limit*sample_time
+                    v_error = min(v_error, v_accel)
+                    v_error = max(v_error, v_decel)
+
+                    throttle = self.pid_throttle.step(error= v_error, sample_time=sample_time)
+                    throttle = max(throttle, 0.)
+
+                # call yaw controller  linear_velocity, angular_velocity, current_velocity
+                steer = self.yaw_controller.get_steering(target_velocity_linear.x, target_velocity_angular.z,\
+                			    current_velocity_linear.x)
+                self.prev_time = current_time
+                # Return throttle, brake, steer
+                return throttle, brake, steer
