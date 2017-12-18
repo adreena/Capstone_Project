@@ -35,8 +35,16 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
    </tr>
   </table>
   SSD results on finding traffic lights on the screen, index 10 shows the traffic_light label.
-  <img src="./resources/ssd1.png"  height="400"/>
-  
+  <table style="width:100%">
+   <tr>
+     <td>Full Image</td>
+     <td>Cropped Traffic Light</td>
+   </tr>
+   <tr>
+     <td><img src="./resources/ssd1.png" width="700" height="350"/></td>
+     <td><img src="/resources/ssd2.png"  width="700" height="350"/></td>
+   </tr>
+  </table>
   
   * SSD: The first step in classifying the traffic lights is finding them in the whole screen, for doing so I used pretrained ssd network from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) and filtered the output boxes to traffic_lights only. After detecting the boxes containing traffic light it's ready to pass to the model (next step).
   
