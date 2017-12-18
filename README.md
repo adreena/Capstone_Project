@@ -7,6 +7,8 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * Disk: 44 GB
   * [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) if you have Ubuntu 16.04.
 
+## Design and Approach
+
 ### Waypoint Updater Node 
 
 ### Twist Controller Node
@@ -15,7 +17,8 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
 
 
-#### Notes
+## Notes
+ * Obstacles
  * Poor Camera Performance:
  * How I tested my stop/move algorithm
  * Rosbag Testing
