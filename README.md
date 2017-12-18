@@ -70,7 +70,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
      <tr>
        <td><img src="./resources/im5.jpg" width="200" height="350"/></td>
        <td><img src="./resources/im13.jpg" width="200" height="350"/></td>
-       <td><img src="./resources/im8.jpg" width="200" height="350"/></td>
+       <td><img src="./resources/im8.jpeg" width="200" height="350"/></td>
      </tr>
     </table>
   * Rosbag Testing
