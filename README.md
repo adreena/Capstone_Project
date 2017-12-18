@@ -7,7 +7,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * Disk: 44 GB
   * [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) if you have Ubuntu 16.04.
 
-## Design and Approach
+## Design and Strategy
 
 ### Waypoint Updater Node 
   * Handling Velocities
@@ -25,6 +25,34 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * Lenet 5
   * Some Images
   * Rosbag Testing
+  ```
+  some of the printed logs from rosbag testing:
+  ...
+  [INFO] [1513556638.282130]: class UNKNOWN
+  [INFO] [1513556638.438032]: class UNKNOWN
+  [INFO] [1513556638.602744]: class RED
+  [INFO] [1513556638.769951]: class RED
+  [INFO] [1513556638.933516]: class RED
+  [INFO] [1513556639.100313]: class RED
+  ....
+  [INFO] [1513560627.324544]: class YELLOW
+  [INFO] [1513560627.491169]: class YELLOW
+  [INFO] [1513560627.657733]: class YELLOW
+  [INFO] [1513560627.825298]: class YELLOW
+  ...
+  [INFO] [1513556648.768566]: class GREEN
+  [INFO] [1513556648.933310]: class GREEN
+  [INFO] [1513556649.097478]: class GREEN
+  [INFO] [1513556649.261926]: class GREEN
+  [INFO] [1513556649.426090]: class GREEN
+
+
+  
+
+  
+
+  
+  ```
 
 
 
