@@ -10,10 +10,18 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 ## Design and Approach
 
 ### Waypoint Updater Node 
-
+  * Handling Velocities
+  * publishing waypoints ahead
+ 
 ### Twist Controller Node
+  *  Handling lights
 
 ### Traffic Light Detector Node
+  * changes (Topics)
+  * Dataset
+  * SSD
+  * Lenet 5
+  * Some Images
 
 
 
