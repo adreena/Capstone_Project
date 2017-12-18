@@ -10,18 +10,11 @@ import uuid
 class TLClassifier(object):
     def __init__(self, traffic_light_model_path, ssd_model_path, save_path):
         #TODO load classifier
-        # path1 = './rfcn_resnet101_coco_2017_11_08/frozen_inference_graph.pb'
-        #path = './src/tl_detector/light_classification/ssd_mobilenet_v1_coco_2017_11_17/frozen_inference_graph.pb'
         self.save_path = save_path
         self.sess_ssd, self.base_ops_ssd = self.load_graph(ssd_model_path)
 
         self.traffic_light_model_path = traffic_light_model_path
         self.sess_tl, self.base_ops_tl = self.load_graph(traffic_light_model_path)
-
-        # x = tf.placeholder(tf.float32, (None, 32, 32, 3))
-        # y = tf.placeholder(tf.int32, (None))
-
-
 
 
     def load_graph(self, graph_file, use_xla=False):

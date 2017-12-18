@@ -50,7 +50,7 @@ class Controller(object):
 
         self.yaw_controller = YawController(self.wheel_base, self.steer_ratio,\
                               self.min_speed, self.max_lat_accel, self.max_steer_angle)
-        self.pid_throttle = PID(kp=8., ki=0.0, kd=0.5)
+        self.pid_throttle = PID(kp=5., ki=0.0, kd=0.5)
 
         self.debug_counter =0
         pass
@@ -90,10 +90,10 @@ class Controller(object):
         #       2- the set light to green: vehicle should start moving without exceeding max acceleration
         #       3- then set light to yellow: vehicle should apply soft brake (~10) to slow down vehicle
         #       4- repeat from the top
-
+        # delay = 15.0
         # target_velocity_linear.x = 10
         # if self._test_timer is None:
-        #     self._test_timer = current_time + 10.0
+        #     self._test_timer = current_time + delay
         #     self._test_light_state  =0
         
         # distance_to_light = 50
@@ -108,7 +108,7 @@ class Controller(object):
         #         self._test_light_state = 0
 
         #     light_state = self._test_light_state
-        #     self._test_timer = current_time + 10.0
+        #     self._test_timer = current_time + delay
 
         #--------------------------------------------------------
 

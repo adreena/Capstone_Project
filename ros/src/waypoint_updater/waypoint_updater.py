@@ -52,24 +52,22 @@ class WaypointUpdater(object):
     	waypoints_ahead.header = msg.header
         waypoints_ahead.waypoints = []
         self.current_pose = msg.pose
+        self.light_pose = None
     	if len(self.waypoints) > 0:
             i = 0 
     	    for waypoint in self.waypoints:
                 if waypoint.pose.pose.position.x > msg.pose.position.x and len(waypoints_ahead.waypoints)< LOOKAHEAD_WPS:
                     waypoints_ahead.waypoints.append(waypoint)
-                    # if self.red_light_active is False:
-                        # rospy.loginfo("red_light_active {}".format(self.red_light_active))
-                        # self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 10)
                     if self.red_light_active is True:
-                        dist_to_vehicle = waypoint.pose.pose.position.x - msg.pose.position.x 
-                        if dist_to_vehicle < 5:
+
+                        dist_to_light = waypoint.pose.pose.position.x - self.light_pose.pose.pose.position.x 
+                        if dist_to_light < 5:
                             self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 0)
-                        elif dist_to_vehicle <10:
+                        elif dist_to_light <10:
                             self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 5)
                         else:
                             self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
                     else:
-                        # rospy.loginfo('v_error: should set to 10')
                         self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
                     i+=1
 
@@ -83,9 +81,8 @@ class WaypointUpdater(object):
 
     def traffic_cb(self, msg):
         # TODO: Callback for /traffic_waypoint message. Implement\
-        # if msg.data != -1:
-        #     self.set_waypoint_velocity(self.waypoints, msg.data, 0.0)
-        #     self.red_light_active = True
+        if msg.data != -1:
+            self.light_pose = self.waypoints[msg.data]
         # else: 
         #     self.red_light_active = False
            # closest_waypoint_ahead  = self.get_closest_waypoint_ahead(self.current_pose)

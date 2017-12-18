@@ -91,7 +91,7 @@ class DBWNode(object):
 
         self.current_pose=None
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
-        # rospy.loginfo('dbw Initialized')
+
         self.loop()
 
     def kmph2mps(self, velocity_kmph):
@@ -112,22 +112,17 @@ class DBWNode(object):
         pass
 
     def final_waypoints_cb(self,data):
-        # rospy.loginfo('number_waypoints_ahead:{} {}'.format(rospy.Time.now().to_sec(),len(data.waypoints)))
         self.number_waypoints_ahead=len(data.waypoints)
         pass
 
     def upcoming_traffice_wp_cb(self, msg):
-        # TODO: Callback for /traffic_waypoint message. Implement\
-        # if self.current_pose != None:
         if msg.data != -1:
             traffic_wp = self.waypoints[msg.data]
             self.distance_to_light = traffic_wp.pose.pose.position.x - self.current_pose.pose.position.x
         pass
 
     def upcoming_traffice_light_state_cb(self, msg):
-        # TODO: Callback for /traffic_waypoint message. Implement\
         self.light_state = msg.data
-        # if self.light_state == 0:
         pass
 
     def twist_cmd_cb(self,data):
@@ -161,9 +156,6 @@ class DBWNode(object):
                     self.publish(0., 0., 0.)
                 else:
                     pass
-               
-
-
             rate.sleep()
 
     def publish(self, throttle, brake, steer,_time=0, _state=0):
@@ -184,7 +176,7 @@ class DBWNode(object):
             bcmd.pedal_cmd_type = BrakeCmd.CMD_TORQUE
             bcmd.pedal_cmd = brake
             self.brake_pub.publish(bcmd)
-            rospy.loginfo('{} : PUBLISH throttl:{} , brake:{} , steer:{}, light:{}'.format(_time, throttle, brake, steer, _state))
+            rospy.loginfo('{} : PUBLISH throttle:{} , brake:{} , steer:{}, light:{}'.format(_time, throttle, brake, steer, _state))
         except Exception as err:
             rospy.loginfo('v_error: ERROR {} '.format(err))
 
