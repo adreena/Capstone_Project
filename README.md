@@ -22,7 +22,11 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * changes (Topics)
   * Dataset
   * SSD
-  * Lenet 5
+  * Traffic Light Classification Algorithm:
+  I used a simple [Lenet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) CNN model, with 2 convolutional layers 5x5x6 & 5x5x16 and 3 fully connected layers 120, 84 & 3 nodes.
+  <img src="./resources/lenet.png"  width="500" height="400"/>
+  
+  
   * Some Images
   * Rosbag Testing
   
