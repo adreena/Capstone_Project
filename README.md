@@ -66,11 +66,13 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
       <td><div>Pred 1: Red 100.000%</div><div>Pred 2: Green 0.000%</div><div>Pred 3: Yellow 0.000% </div></td>
       <td><div>Pred 1: Green 100.000%</div><div>Pred 2: Red 0.000%</div><div>Pred 3: Yellow 0.000% </div></td>
       <td><div>Pred 1: Yellow 99.899%</div><div>Pred 2: Green 0.062%</div><div>Pred 3: Red 0.039% </div></td>
+      <td><div>Pred 1: Green 100.000%</div><div>Pred 2: Red 0.000%</div><div>Pred 3: Yellow 0.000% </div></td>
      </tr>
      <tr>
        <td><img src="./resources/im5.jpg" width="200" height="350"/></td>
        <td><img src="./resources/im13.jpg" width="200" height="350"/></td>
        <td><img src="./resources/im8.jpeg" width="200" height="350"/></td>
+       <td><img src="./resources/im12.jpeg" width="200" height="350"/></td>
      </tr>
     </table>
   * Rosbag Testing
