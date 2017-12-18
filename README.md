@@ -26,7 +26,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
  * Dataset: Model is trained on Bosch Small Traffic Lights Dataset, only on the cropped traffic lights.
   Train/Validation set 5440 images with 20% split.
   
-  Here are some samples from traning set, red regions are the cropped and store in a saparete dataset:
+  Here are some samples from Bosch Dataset, red regions are the cropped and store in a saparate dataset for training the model:
   
   <table style="width:100%">
    <tr>
@@ -34,8 +34,12 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
      <td><img src="/resources/tl3.png"  width="700" height="350"/></td>
    </tr>
   </table>
+  SSD results on finding traffic lights on the screen, index 10 shows the traffic_light label.
+  <img src="./resources/ssd1.png"  height="400"/>
+  
   
   * SSD: The first step in classifying the traffic lights is finding them in the whole screen, for doing so I used pretrained ssd network from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) and filtered the output boxes to traffic_lights only. After detecting the boxes containing traffic light it's ready to pass to the model (next step).
+  
   
   * Model: I used a simple [Lenet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) CNN model:
      * 2 convolutional layers 5x5x6 & 5x5x16 
