@@ -41,8 +41,8 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
      <td>Cropped Traffic Light</td>
    </tr>
    <tr>
-     <td><img src="./resources/ssd1.png" width="700" height="350"/></td>
-     <td><img src="/resources/ssd2.png"  width="700" height="350"/></td>
+     <td><img src="./resources/ssd1.png" width="1000" height="350"/></td>
+     <td><img src="/resources/ssd2.png"  width="200" height="350"/></td>
    </tr>
   </table>
   
