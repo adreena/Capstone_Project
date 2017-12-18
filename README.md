@@ -34,7 +34,8 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   Train/Validation set 5440 images with 20% split.
   
   Here are some samples from traning set:
-   <table style="width:100%">
+  
+  <table style="width:100%">
   <tr>
     <td>Red</td>
     <td>Yellow</td>
@@ -46,13 +47,13 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
     <td><img src="./resources/im2.jpg" height="160"/></td>
   </tr>
   <tr>
-    <td><img src="./resources/im9.jpg"  height="160"/></td>
-    <td><img src="./resources/im14.jpg" height="160"/></td>
-    <td><img src="./resources/im12.jpg" height="160"/></td>
+    <td><img src="./resources/im9.jpeg"  height="160"/></td>
+    <td><img src="./resources/im14.jpeg" height="160"/></td>
+    <td><img src="./resources/im12.jpeg" height="160"/></td>
   </tr>
   <tr>
     <td><img src="./resources/im10.jpg" height="160"/></td>
-    <td><img src="./resources/im8.jpg"  height="160"/></td>
+    <td><img src="./resources/im8.jpeg"  height="160"/></td>
     <td><img src="./resources/im13.jpg"  height="160"/></td>
   </tr>
 </table>
