@@ -1,3 +1,5 @@
+# Capstone Project
+
 This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction [here](https://classroom.udacity.com/nanodegrees/nd013/parts/6047fe34-d93c-4f50-8336-b70ef10cb4b2/modules/e1a23b06-329a-4684-a717-ad476f0d8dff/lessons/462c933d-9f24-42d3-8bdc-a08a5fc866e4/concepts/5ab4b122-83e6-436d-850f-9f4d26627fd9).
 
 ### System Info
@@ -26,7 +28,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * How I tested twist_controller stop/move 
     *  Turning Camera on slows down the simulator significanlty which causes a lag between ros sending a command and cimulator receiving the command. 
     * Due to the high cpu uage with active camera, simulator tends to go off lanes and exceed speed limit which I think is caused by latency in receiving a response from ros
-    * Just for testing purposes, I disabled camera and defined a 15 sec. loop over random color changes (Red,Green,Yellow) to test how my controller is handling the situation and is adjusting throttle, brake & steer, here is the snippet for testing:
+    * Just for testing purposes, I disabled camera and defined a 15 sec. loop over random color changes (Red,Green,Yellow) to test how my controller is handling the situation and is adjusting throttle, brake & steer. This snippet act as traffic lights withint 15sec distance from each other:
     
     ```
     #----------------------------------------------------------
@@ -57,9 +59,10 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
         light_state = self._test_light_state
         self._test_timer = current_time + delay
-
+    
+    .. and the controller logic
+    
     ```
-
 
 ### Traffic Light Detector Node
 
@@ -152,6 +155,12 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 ## Notes
 
  * Obstacles
- * Poor Camera Performance:
- * rivz Errors
-
+   * I tried vbox on mac os, it was very slow and I couldn't test/debug anything funcional
+   * Then I tried docker image, it was better than my vobx but with camera mode, there was a huge latency in communication between ros/simualtor, + rviz didn't work with docker
+   * Lastly I installed a Native Linux on my Mac, this couldn't resolve camera issue, but I tested my controller functionalties on controlling steer, throttle and brake
+   * I first trained my traffic light classifier model with keras, but couldn't load it in twist_controller 
+   * Tensorflow has multithreading probelm, it wasn't able to process multiple requests at the same time, so I froze my model and finally it loaded successfully !
+   
+   * I wish I had a high performance PC to completely test the code as a whole instead of testing classifier indepentely just with rosbag ...
+   
+ 
