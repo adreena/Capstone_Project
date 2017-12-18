@@ -19,9 +19,11 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
 
 ### Traffic Light Detector Node
-  * changes (Topics)
-  * Dataset
-  * SSD
+
+> IMPORTANT CHANGES:  
+ * /traffic_waypoint : I publish any detected traffic waypoint to this topic to handle moving/slowing/stopping the vehicle in waypoint_updater and dbw_node. (Original code was only publishing red traffic light)
+ * /traffic_light_state: new topic that I added to identify traffic color state
+
 #### Traffic Light Classification Algorithm:
  * Dataset: Model is trained on Bosch Small Traffic Lights Dataset, only on the cropped traffic lights.
   Train/Validation set 5440 images with 20% split.
@@ -105,6 +107,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   ```
   
 ## Notes
+
  * Obstacles
  * Poor Camera Performance:
  * rivz Errors
