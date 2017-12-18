@@ -11,10 +11,12 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
 ### Waypoint Updater Node 
   * Handling Velocities
-  * publishing waypoints ahead
+  * Publishing waypoints ahead
  
 ### Twist Controller Node
-  *  Handling lights
+  * Handling lights
+  * How I tested my stop/move algorithm
+
 
 ### Traffic Light Detector Node
   * changes (Topics)
@@ -22,14 +24,13 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * SSD
   * Lenet 5
   * Some Images
+  * Rosbag Testing
 
 
 
 ## Notes
  * Obstacles
  * Poor Camera Performance:
- * How I tested my stop/move algorithm
- * Rosbag Testing
  * rivz Errors
 
 
