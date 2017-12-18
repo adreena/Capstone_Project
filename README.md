@@ -5,17 +5,60 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * Processor : Intel Core i7 CPU @ 2.8GHz * 8
   * Memory : 15.5 GB
   * Disk: 44 GB
-  * [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) if you have Ubuntu 16.04.
+  * [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
 ## Design and Strategy
 
 ### Waypoint Updater Node 
-  * Handling Velocities
-  * Publishing waypoints ahead
+  * Finds the 200 waypoints ahead and set their velocities to max_speed and publishes these waypoints to /final_waypoints
+  * If red light flag is active I decide to reduce target speed according to their distance from the light to avoid exceeding acceleration limit exceed 10 m/s^2 and jerk limit 10 m/s^3. 
  
 ### Twist Controller Node
+  * dbw_node starts a loop od 50Hz  to adjust vehciles throttle, steer and brake in each cycle as long as dbw_node is enabled
+  * Throttle: I used a PID controller with KP=5.0, KI=0.0 , KD= 0.5 and limit the acceleration within the range of (decel_limit, accel_limit) from launch files parameter
   * Handling lights
-  * How I tested my stop/move algorithm
+  * Steer: I used a YawController based on wheel_base, steer_ratio, min_speed, max_lat_accel and max_steer_angle
+  * brake: brake is 0 by defaul unless one of these cases happen:
+    * red light: apply brake with intensity relative to the distance from the light, like if it's less than 15m apply full_brake and if it's more brake with a lower value, I calculated full_brake based on `(vehicle_mass + fuel_capacity * GAS_DENSITY )* acceleration * wheel_radius`
+    * yellow light: apply a soft brake with intensity of 10.
+    * if there are less than 200 waypoints ahead prepare to stop the vehicle by applying brake
+  
+  * How I tested twist_controller stop/move 
+    *  Turning Camera on slows down the simulator significanlty which causes a lag between ros sending a command and cimulator receiving the command. 
+    * Due to the high cpu uage with active camera, simulator tends to go off lanes and exceed speed limit which I think is caused by latency in receiving a response from ros
+    * Just for testing purposes, I disabled camera and defined a 15 sec. loop over random color changes (Red,Green,Yellow) to test how my controller is handling the situation and is adjusting throttle, brake & steer, here is the snippet for testing:
+    
+    ```
+    #----------------------------------------------------------
+    #---------- Possible scenarios ----------------------------
+    #----------------------------------------------------------
+    # Note: Becuase the simulator preformance slows down with camera 
+    #       I had to test my traffic_light handling code with following scenarios:
+    #       1- set light to red for 10 seconds : vehicle should slow down and apply brake to full stop
+    #       2- the set light to green: vehicle should start moving without exceeding max acceleration
+    #       3- then set light to yellow: vehicle should apply soft brake (~10) to slow down vehicle
+    #       4- repeat from the top
+    delay = 15.0
+    target_velocity_linear.x = 10
+    if self._test_timer is None:
+        self._test_timer = current_time + delay
+        self._test_light_state  =0
+
+    distance_to_light = 50
+    light_state = self._test_light_state 
+
+    if current_time > self._test_timer :
+        if self._test_light_state == 0:
+            self._test_light_state = 2
+        elif self._test_light_state == 2:
+            self._test_light_state = 1
+        elif self._test_light_state == 1:
+            self._test_light_state = 0
+
+        light_state = self._test_light_state
+        self._test_timer = current_time + delay
+
+    ```
 
 
 ### Traffic Light Detector Node
