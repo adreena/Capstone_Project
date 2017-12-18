@@ -33,28 +33,12 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   Model is trained on Bosch Small Traffic Lights Dataset, only on the cropped traffic lights.
   Train/Validation set 5440 images with 20% split.
   
-  Here are some samples from traning set:
+  Here are some samples from traning set, red regions are the cropped and store in a saparete dataset:
   
   <table style="width:100%">
   <tr>
-    <td>Red</td>
-    <td>Yellow</td>
-    <td>Green</td>
-  </tr>
-  <tr>
-    <td><img src="./resources/im5.jpg"height="160"/></td>
-    <td><img src="/resources/im7.jpg"  height="160"/></td>
-    <td><img src="./resources/im2.jpg" height="160"/></td>
-  </tr>
-  <tr>
-    <td><img src="./resources/im9.jpeg"  height="160"/></td>
-    <td><img src="./resources/im14.jpeg" height="160"/></td>
-    <td><img src="./resources/im12.jpeg" height="160"/></td>
-  </tr>
-  <tr>
-    <td><img src="./resources/im10.jpg" height="160"/></td>
-    <td><img src="./resources/im8.jpeg"  height="160"/></td>
-    <td><img src="./resources/im13.jpg"  height="160"/></td>
+    <td><img src="./resources/tl1.png"height="160"/></td>
+    <td><img src="/resources/tl3.png"  height="160"/></td>
   </tr>
 </table>
   
