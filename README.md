@@ -37,8 +37,8 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   
   <table style="width:100%">
   <tr>
-    <td><img src="./resources/tl1.png" width="300" height="300"/></td>
-    <td><img src="/resources/tl3.png"  width="300" height="300"/></td>
+    <td><img src="./resources/tl1.png" width="500" height="400"/></td>
+    <td><img src="/resources/tl3.png"  width="500" height="400"/></td>
   </tr>
 </table>
   
