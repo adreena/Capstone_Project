@@ -58,20 +58,3 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
  * Poor Camera Performance:
  * rivz Errors
 
-
-### Real world testing Result
-1. Download [training bag](https://drive.google.com/file/d/0B2_h37bMVw3iYkdJTlRSUlJIamM/view?usp=sharing) that was recorded on the Udacity self-driving car (a bag demonstraing the correct predictions in autonomous mode can be found [here](https://drive.google.com/open?id=0B2_h37bMVw3iT0ZEdlF4N01QbHc))
-2. Unzip the file
-```bash
-unzip traffic_light_bag_files.zip
-```
-3. Play the bag file
-```bash
-rosbag play -l traffic_light_bag_files/loop_with_traffic_light.bag
-```
-4. Launch your project in site mode
-```bash
-cd CarND-Capstone/ros
-roslaunch launch/site.launch
-```
-5. Confirm that traffic light detection works on real life images
