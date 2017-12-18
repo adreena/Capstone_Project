@@ -13,7 +13,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
 ### Waypoint Updater Node 
   * Finds the 200 waypoints ahead and set their velocities to max_speed and publishes these waypoints to /final_waypoints
-  * If red light flag is active I decide to reduce target speed according to their distance from the light to avoid exceeding acceleration limit exceed 10 m/s^2 and jerk limit 10 m/s^3. 
+  * If red light flag is active it reduces target speed according to their distance from the light to avoid exceeding acceleration limit exceed 10 m/s^2 and jerk limit 10 m/s^3. 
  
 ### Twist Controller Node
   * dbw_node starts a loop od 50Hz  to adjust vehciles throttle, steer and brake in each cycle as long as dbw_node is enabled
