@@ -62,7 +62,9 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   
      * Here are model outputs for some random traffic light images and their top 3 predictions:
      <tr>
-     <td>Pred 1: Red 100.000% <br> Pred 2: Green 0.000% <br> Pred 3: Yellow 0.000%</td>
+     <td><p>Pred 1: Red 100.000% 
+      Pred 2: Green 0.000% 
+      Pred 3: Yellow 0.000% </p></td>
      <td>Cropped Traffic Light</td>
      </tr>
      <tr>
