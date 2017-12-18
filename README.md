@@ -25,8 +25,14 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * Lenet 5
   * Some Images
   * Rosbag Testing
+  
+  ``` shell command
+  $ roslaunch launch/site.launch
+  $ rosbag play -l just_traffic_light.bag
   ```
-  some of the printed logs from rosbag testing:
+  
+  ```
+  Some of the printed logs from rosbag testing:
   ...
   [INFO] [1513556638.282130]: class UNKNOWN
   [INFO] [1513556638.438032]: class UNKNOWN
@@ -45,17 +51,8 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   [INFO] [1513556649.097478]: class GREEN
   [INFO] [1513556649.261926]: class GREEN
   [INFO] [1513556649.426090]: class GREEN
-
-
-  
-
-  
-
-  
   ```
-
-
-
+  
 ## Notes
  * Obstacles
  * Poor Camera Performance:
