@@ -34,6 +34,10 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
      <td><img src="/resources/tl3.png"  width="700" height="350"/></td>
    </tr>
   </table>
+  
+  
+  * SSD: The first step in classifying the traffic lights is finding them in the whole screen, for doing so I used pretrained ssd network from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) and filtered the output boxes to traffic_lights only. After detecting the boxes containing traffic light it's ready to pass to the model (next step).
+  
   SSD results on finding traffic lights on the screen, index 10 shows the traffic_light label.
   <table style="width:100%">
    <tr>
@@ -46,19 +50,26 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
    </tr>
   </table>
   
-  * SSD: The first step in classifying the traffic lights is finding them in the whole screen, for doing so I used pretrained ssd network from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) and filtered the output boxes to traffic_lights only. After detecting the boxes containing traffic light it's ready to pass to the model (next step).
-  
-  
   * Model: I used a simple [Lenet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) CNN model:
      * 2 convolutional layers 5x5x6 & 5x5x16 
      * 2 fully connected layers 120, 84 .
      * input layer 64x64x3
      * output layer 3 nodes : Red (0), Yellow(1), Green(2)
+     * Epochs 10 (after a few experiments , 10 epochs produced the best results)
+     * val_loss: 0.1715 - val_acc: 0.977
+     * Find my epxeriments [here](https://github.com/chocolateHszd/Capstone_Project/tree/master/ros/src/tl_detector/light_classification/traffic_light_classifier)
       <img src="./resources/lenet.png"  height="400"/>
   
- 
-  
-  * Some Images
+     * Here are model outputs for some random traffic light images and their top 3 predictions:
+     <tr>
+     <td>Pred 1: Red 100.000% \n Pred 2: Green 0.000% \n Pred 3: Yellow 0.000%</td>
+     <td>Cropped Traffic Light</td>
+     </tr>
+     <tr>
+       <td><img src="./resources/im5.jpg" width="1000" height="350"/></td>
+       <td><img src="/resources/ssd2.png"  width="200" height="350"/></td>
+     </tr>
+    </table>
   * Rosbag Testing
   
   ``` shell command
