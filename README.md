@@ -25,9 +25,9 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
     * if there are less than 200 waypoints ahead prepare to stop the vehicle by applying brake
   
   * How I tested twist_controller stop/move 
-    *  Turning Camera on slows down the simulator significanlty which causes a lag between ros sending a command and cimulator receiving the command. 
+    *  Turning Camera on slows down the simulator significanlty which causes a lag between ros sending a command and the simulator receiving the command. 
     * Due to the high cpu uage with active camera, simulator tends to go off lanes and exceed speed limit which I think is caused by latency in receiving a response from ros
-    * Just for testing purposes, I disabled camera and defined a 15 sec. loop over random color changes (Red,Green,Yellow) to test how my controller is handling the situation and is adjusting throttle, brake & steer. This snippet act as traffic lights withint 15sec distance from each other:
+    * Just for testing purposes, I disabled camera and defined a 15 sec. loop over random color changes (Red,Green,Yellow) to test how my controller is handling the situation and is adjusting throttle, brake & steer. This snippet act as traffic lights withint 15 sec distance from each other:
     
     ```
     #----------------------------------------------------------
@@ -85,7 +85,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   
   * SSD: The first step in classifying the traffic lights is finding them in the whole screen, for doing so I used pretrained ssd network from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) and filtered the output boxes to traffic_lights only. After detecting the boxes containing traffic light it's ready to pass to the model (next step).
   
-  SSD results on finding traffic lights on the screen, index 10 shows the traffic_light label.
+  * SSD results on finding traffic lights on the screen, index 10 shows the traffic_light label.
   <table style="width:100%">
    <tr>
      <td>Full Image</td>
@@ -109,6 +109,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
       <img src="./resources/lenet.png"  height="400"/>
   
      * Here are model outputs for some random traffic light images and their top 3 predictions:
+     
      <table>
      <tr>
       <td><div>Pred 1: Red 100.000%</div><div>Pred 2: Green 0.000%</div><div>Pred 3: Yellow 0.000% </div></td>
@@ -160,7 +161,6 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
    * Lastly I installed a Native Linux on my Mac, this couldn't resolve camera issue, but I tested my controller functionalties on controlling steer, throttle and brake
    * I first trained my traffic light classifier model with keras, but couldn't load it in twist_controller 
    * Tensorflow has multithreading probelm, it wasn't able to process multiple requests at the same time, so I froze my model and finally it loaded successfully !
-   
-   * I wish I had a high performance PC to completely test the code as a whole instead of testing classifier indepentely just with rosbag ...
+   * I wish I had a high performance PC to completely test the code as a whole instead of testing classifier indepentely just with rosbag & my notebook experiments ...
    
  
