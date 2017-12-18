@@ -80,12 +80,18 @@ class Controller(object):
         # create pid for throttle sample_time, cte
         sample_time = max(current_time - self.prev_time, SAMPLE_TIME_MIN)
         
-        # ENDING points ahead should brake and stop the car
+        
+        #----------------------------------------------------------
+        #---------- Possible scenarios ----------------------------
+        #----------------------------------------------------------
+        # Note: Becuase the simulator preformance slows down with camera 
+        #       I had to test my traffic_light handling code with following scenarios:
+        #       1- set light to red for 10 seconds : vehicle should slow down and apply brake to full stop
+        #       2- the set light to green: vehicle should start moving without exceeding max acceleration
+        #       3- then set light to yellow: vehicle should apply soft brake (~10) to slow down vehicle
+        #       4- repeat from the top
 
-        # possible scenarios 
-        # case red light then green in 10 sec
         # target_velocity_linear.x = 10
-
         # if self._test_timer is None:
         #     self._test_timer = current_time + 10.0
         #     self._test_light_state  =0
@@ -104,10 +110,11 @@ class Controller(object):
         #     light_state = self._test_light_state
         #     self._test_timer = current_time + 10.0
 
+        #--------------------------------------------------------
 
 
         if kwargs["number_waypoints_ahead"] < 150:
-            rospy.loginfo('applying 1')
+            # ENDING points ahead should brake and stop the car
             if kwargs["number_waypoints_ahead"] < 25:
                 brake = full_brake # ~360
             elif kwargs["number_waypoints_ahead"] < 50:
@@ -128,6 +135,8 @@ class Controller(object):
             max_speed_mps = self.max_velocity*ONE_MPH
             target_velocity = min(max_speed_mps, target_velocity_linear.x)
             v_error = target_velocity - current_velocity_linear.x
+
+            # if light is red apply brake based on how close it is to the light
             if light_state == 0:
                 if distance_to_light < 15:
                     brake = full_brake
@@ -135,10 +144,10 @@ class Controller(object):
                     brake = 20
                 else:
                     brake = 10
-
                 self.pid_throttle.reset()
                 return 0.,brake,0., current_time,self._test_light_state 
-            elif light_state == 1:
+
+            elif light_state == 1: #Yellow
                 brake = 10.
                 return 0.,brake,0., current_time,self._test_light_state 
             else:

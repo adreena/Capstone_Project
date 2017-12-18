@@ -88,6 +88,7 @@ class TLDetector(object):
         """
         self.has_image = True
         self.camera_image = msg
+        rospy.loginfo('img recieved')
         light_wp, state = self.process_traffic_lights()
 
         '''
@@ -244,43 +245,43 @@ class TLDetector(object):
         stop_line_positions = self.config['stop_line_positions']
 
         if self.waypoints is not None and self.lights is not None and self.light_classifier is not None:
-            if(self.pose):
+            if self.pose != None:
                 car_position_index = self.get_closest_waypoint(self.pose.pose)
-            
-            #TODO find the closest visible traffic light (if one exists)
+                light_position = self.get_closest_light(self.pose.pose)
+                car_position = self.waypoints[car_position_index].pose.pose.position
 
-            # closest_light_position_index = self.get_closest_light(self.pose.pose)
-            # light_position = self.lights[closest_light_position_index].pose.pose.position
-            light_position = self.get_closest_light(self.pose.pose)
-            car_position = self.waypoints[car_position_index].pose.pose.position
-
-
-            if light_position != None and car_position !=None:
-                light_to_car_distance = (light_position.x - car_position.x)
-                
-                #todo limit distance ssd starts detecting from 40 to 20 starts cutting traffic light from top
-
-                if light_to_car_distance > 0 and light_to_car_distance >= 20 and light_to_car_distance <= 40: # and self.skip_next is False:
-                    # rospy.loginfo('Capturing')
-                    closest_stop_line = float('-inf')
+                if light_position != None and car_position !=None:
+                    light_to_car_distance = (light_position.x - car_position.x)
                     
-                    # find the closest stopline to the traffic light
-                    count = 0
-                    stop_line_index = -1
-                    for stop_line in stop_line_positions:
-                        distance = stop_line[0] - light_position.x
-                        if distance <=0 and distance > closest_stop_line:
-                            closest_stop_line = distance
-                            stop_line_index = count
-                        count +=1 
+                    # Note: Uncomment if simulator is runnning slow:
+                    # limit distance ssd starts detecting from 40 to 20 starts cutting traffic light from top
+                    if light_to_car_distance > 0 : # and light_to_car_distance >= 20 and light_to_car_distance <= 40: 
+                        closest_stop_line = float('-inf')
+                        
+                        # find the closest stopline to the traffic light
+                        count = 0
+                        stop_line_index = -1
+                        for stop_line in stop_line_positions:
+                            distance = stop_line[0] - light_position.x
+                            if distance <=0 and distance > closest_stop_line:
+                                closest_stop_line = distance
+                                stop_line_index = count
+                            count +=1 
 
-                    if stop_line_index > -1:
-                        self.closest_stop_line_index = self.get_closest_stopline_wp(stop_line_positions[stop_line_index])
-                        light = True
+                        if stop_line_index > -1:
+                            self.closest_stop_line_index = self.get_closest_stopline_wp(stop_line_positions[stop_line_index])
+                            light = True
 
         if light:
             traffic_light_current_color = self.get_light_state(light,light_to_car_distance)
-            # rospy.loginfo('class:{}'.format(traffic_light_current_color))
+            if traffic_light_current_color == 0:
+                rospy.loginfo('class RED')
+            elif traffic_light_current_color == 1:
+                rospy.loginfo('class YELLOW')
+            elif traffic_light_current_color == 2:
+                rospy.loginfo('class GREEN')
+            elif traffic_light_current_color == 4:
+                rospy.loginfo('class UNKNOWN')
             return self.closest_stop_line_index , traffic_light_current_color
         
         return -1, TrafficLight.UNKNOWN

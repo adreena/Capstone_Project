@@ -2,4 +2,9 @@
 <launch>
     <node pkg="tl_detector" type="tl_detector.py" name="tl_detector" output="screen" cwd="node"/>
     <node pkg="tl_detector" type="light_publisher.py" name="light_publisher" output="screen" cwd="node"/>
+     <param name="ssd_model_path" value="$(find tl_detector)/light_classification/ssd_mobilenet_v1_coco_2017_11_17/frozen_inference_graph.pb" />
+    
+    <param name="traffic_light_model_path" value="$(find tl_detector)/light_classification/traffic_light_classifier/model_v12/frozen_model.pb"/>
+
+    <param name="save_path" value="$(find tl_detector)/light_classification/" />
 </launch>
