@@ -59,14 +59,14 @@ class WaypointUpdater(object):
                 if waypoint.pose.pose.position.x > msg.pose.position.x and len(waypoints_ahead.waypoints)< LOOKAHEAD_WPS:
                     waypoints_ahead.waypoints.append(waypoint)
                     if self.red_light_active is True:
-
-                        dist_to_light = waypoint.pose.pose.position.x - self.light_pose.pose.pose.position.x 
-                        if dist_to_light < 5:
-                            self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 0)
-                        elif dist_to_light <10:
-                            self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 5)
-                        else:
-                            self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
+                        if self.light_pose != None:
+                            dist_to_light = waypoint.pose.pose.position.x - self.light_pose.pose.pose.position.x 
+                            if dist_to_light < 5:
+                                self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 0)
+                            elif dist_to_light <10:
+                                self.set_waypoint_velocity(waypoints_ahead.waypoints, i, 5)
+                            else:
+                                self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
                     else:
                         self.set_waypoint_velocity(waypoints_ahead.waypoints, i, self.max_velocity)
                     i+=1
