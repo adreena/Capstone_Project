@@ -22,10 +22,40 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
   * changes (Topics)
   * Dataset
   * SSD
-  * Traffic Light Classification Algorithm:
-  I used a simple [Lenet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) CNN model, with 2 convolutional layers 5x5x6 & 5x5x16 and 3 fully connected layers 120, 84 & 3 nodes.
+#### Traffic Light Classification Algorithm:
+  I used a simple [Lenet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) CNN model:
+  * 2 convolutional layers 5x5x6 & 5x5x16 
+  * 2 fully connected layers 120, 84 .
+  * input layer 64x64x3
+  * output layer 3 nodes : Red (0), Yellow(1), Green(2)
   <img src="./resources/lenet.png"  height="400"/>
+  ##### Dataset 
+  Model is trained on Bosch Small Traffic Lights Dataset, only on the cropped traffic lights.
+  Train/Validation set 5440 images with 20% split.
   
+  Here are some samples from traning set:
+   <table style="width:100%">
+  <tr>
+    <td>Red</td>
+    <td>Yellow</td>
+    <td>Green</td>
+  </tr>
+  <tr>
+    <td><img src="./resources/im5.jpg"height="160"/></td>
+    <td><img src="/resources/im7.jpg"  height="160"/></td>
+    <td><img src="./resources/im2.jpg" height="160"/></td>
+  </tr>
+  <tr>
+    <td><img src="./resources/im9.jpg"  height="160"/></td>
+    <td><img src="./resources/im14.jpg" height="160"/></td>
+    <td><img src="./resources/im12.jpg" height="160"/></td>
+  </tr>
+  <tr>
+    <td><img src="./resources/im10.jpg" height="160"/></td>
+    <td><img src="./resources/im8.jpg"  height="160"/></td>
+    <td><img src="./resources/im13.jpg"  height="160"/></td>
+  </tr>
+</table>
   
   * Some Images
   * Rosbag Testing
