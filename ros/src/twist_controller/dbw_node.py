@@ -133,7 +133,6 @@ class DBWNode(object):
     def dbw_enabled_cb(self, data):
         self.dbw_enabled = data.data
         self.dbw_enabled_count =0
-        rospy.loginfo('CALL dbw_enabled:{}, {}'.format(self.dbw_enabled, type(self.dbw_enabled)))
         pass
 
     def loop(self):
