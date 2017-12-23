@@ -133,6 +133,7 @@ class DBWNode(object):
     def dbw_enabled_cb(self, data):
         self.dbw_enabled = data.data
         self.dbw_enabled_count =0
+        rospy.loginfo('CALL dbw_enabled:{}, {}'.format(self.dbw_enabled, type(self.dbw_enabled)))
         pass
 
     def loop(self):
@@ -147,6 +148,7 @@ class DBWNode(object):
                 target_velocity_linear= self.target_velocity.twist.linear,\
                 dbw_enabled=self.dbw_enabled, number_waypoints_ahead=self.number_waypoints_ahead,\
                 distance_to_light= self.distance_to_light, light_state= self.light_state )
+                rospy.loginfo('AUTO dbw_enabled:{}'.format(self.dbw_enabled))
 
                 self.publish(throttle, brake, steer, _time, _state)
             else:
@@ -156,6 +158,7 @@ class DBWNode(object):
                     self.publish(0., 0., 0.)
                 else:
                     pass
+                rospy.loginfo('DBW dbw_enabled: {}'.format(self.dbw_enabled))
             rate.sleep()
 
     def publish(self, throttle, brake, steer,_time=0, _state=0):
@@ -176,7 +179,7 @@ class DBWNode(object):
             bcmd.pedal_cmd_type = BrakeCmd.CMD_TORQUE
             bcmd.pedal_cmd = brake
             self.brake_pub.publish(bcmd)
-            rospy.loginfo('{} : PUBLISH throttle:{} , brake:{} , steer:{}, light:{}'.format(_time, throttle, brake, steer, _state))
+            rospy.loginfo('{} : PUBLISH_throttle:{} , brake:{} , steer:{}, light:{}'.format(_time, throttle, brake, steer, _state))
         except Exception as err:
             rospy.loginfo('v_error: ERROR {} '.format(err))
 

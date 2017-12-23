@@ -50,7 +50,7 @@ class Controller(object):
 
         self.yaw_controller = YawController(self.wheel_base, self.steer_ratio,\
                               self.min_speed, self.max_lat_accel, self.max_steer_angle)
-        self.pid_throttle = PID(kp=5., ki=0.0, kd=0.5)
+        self.pid_throttle = PID(kp=15., ki=0.0, kd=0.5)
 
         self.debug_counter =0
         pass
