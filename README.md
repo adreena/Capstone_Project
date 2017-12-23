@@ -17,7 +17,7 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
  
 ### Twist Controller Node
   * dbw_node starts a loop od 50Hz  to adjust vehciles throttle, steer and brake in each cycle as long as dbw_node is enabled
-  * Throttle: I used a PID controller with KP=5.0, KI=0.0 , KD= 0.5 and limit the acceleration within the range of (decel_limit, accel_limit) from launch files parameter
+  * Throttle: I used a PID controller with KP=15.0, KI=0.0 , KD= 0.5 and limit the acceleration within the range of (decel_limit, accel_limit) from launch files parameter
   * Steer: I used a YawController based on wheel_base, steer_ratio, min_speed, max_lat_accel and max_steer_angle
   * Brake: brake is 0 by defaul unless one of these cases happen:
     * Red Light: apply brake with intensity relative to the distance from the light, like if it's less than 15m apply full_brake and if it's more brake with a lower value, I calculated full_brake based on `(vehicle_mass + fuel_capacity * GAS_DENSITY )* acceleration * wheel_radius`
